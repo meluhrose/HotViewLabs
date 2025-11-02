@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header>
+    <a href="../index.html"><img src="../assets/header-logo-desktop.png" alt="HotViewLabs Logo"></a>
+    <nav>
+        <ul>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+    </nav>
+        <a href="../account/login.html"><img src="../assets/user.png" alt="User profile icon for accessing account login and registration"></a>
+        <a href="/cart.html"><img src="../assets/shopping-bag.png" alt="Shopping Bag Icon that directs to cart"></a>
+</header>
+    <main>
+        <form id="registerForm">
+            <div>
+                <label for="Name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <div>
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </div>
+            
+            <button type="submit">Register</button>
+        </form>
+        
+        <p>Already a member? <a href="login.html">LOGIN</a></p>
+    </main>
+</body>
+<footer>
+    <a href="../index.html"><img src="../assets/footer-logo-desktop.png" alt="Footer Logo"></a>
+</footer>
+</html>

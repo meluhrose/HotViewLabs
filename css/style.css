@@ -1,0 +1,37 @@
+body {
+    background-color: #F2E0D0;
+    font-family: 'Inter', sans-serif;
+    color: #0C0C20;
+}
+
+header {
+display: flex;
+align-items: center;
+}
+
+nav ul {
+    font-family: 'Figtree', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #0C0C20;
+}
+
+
+footer {
+    background-color: #BFA095;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.carousel img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
