@@ -1,0 +1,73 @@
+Style Guide
+
+| Level     | Font    | Weight | Size  | Notes                         |
+| --------- | ------- | ------ | ----- | ----------------------------- |
+| Display 1 | Figtree | Bold   | 72 px | Used for major hero headlines |
+| Heading 1 | Figtree | Bold   | 56 px | Section headers               |
+| Heading 2 | Figtree | Bold   | 48 px | Subsection headers            |
+| Heading 3 | Figtree | Bold   | 32 px | Smaller headings              |
+| Heading 4 | Figtree | Bold   | 24 px | Can be uppercase for emphasis |
+
+
+| Level       | Font  | Weight  | Size  |
+| Paragraph 1 | Inter | Regular | 18 px |
+| Paragraph 2 | Inter | Regular | 16 px |
+| Paragraph 3 | Inter | Regular | 14 px |
+| Paragraph 4 | Inter | Regular | 12 px |
+
+| Element   | Font  | Weight   | Size          |
+| Button    | Inter | SemiBold    | 20 px / 16 px |
+| Hyperlink | Inter | SemiBold | 20 px / 15 px |
+
+Sale Price: 29 px, Bold (#C53122)
+Normal Price: 18 px, Regular (Font Color)
+
+| Role              | Hex       | Description                      |
+
+ **Primary**        "#401713"  Deep brown, key brand tone       
+| **Secondary**     | "#A65E4E" | Accent tone for highlights       |
+| **Background**    | "#F2E0D0" | Main page background             |
+| **Font Colour**   | "#0C0C20" | Default text color               |
+| **Accent 1**      | "#735149" | Secondary shade                  |
+| **Accent 2**      | "#BFA095" | Supporting tone                  |
+| **Error / Alert** | "#C53122" | Error state, critical highlights |
+
+
+| Context | Padding | Font           | Weight | Notes                        |
+| Desktop | 15 px   | Inter SemiBold | 16 px  | FAQ, Contact, Privacy Policy |
+| Mobile  | 7 px    | Inter SemiBold | 16 px  | Same links, smaller padding  |
+
+
+Buttons
+Primary Buttons
+
+States: Normal / Hover / Active (background toggles between #F2E0D0 and #401713)
+Border Radius: 8 px
+Desktop Height: 64 px
+Mobile Height: 54 px
+Max Width: 462 px (desktop)
+Font: Inter Light 20 px
+
+Carousel Buttons (Desktop Only)
+
+Heights: Desktop 49 px / Mobile 54 px
+Width: max 209 px
+Same color and typography system as primary buttons.
+Login / Register / Payment Buttons
+Follows same sizing and typography as Primary buttons.
+Background alternates between light (#F2E0D0) and dark (#401713) depending on hover or focus.
+
+
+Form Fields
+Border: 2 px solid
+Border Radius: 8 px
+Inner Shadow: Subtle for depth
+Desktop Height: 48 px
+Mobile Height: 40 px
+
+| State                 | Example                                       | Color                     |
+
+| Default (Placeholder) | “placeholder”                                 | "#0C0C20" at 20% opacity |
+| Focus                 | Active border                                 | "#401713"                 |
+| Error                 | Field Required text                           | "#C53122"                 |
+| Placeholder Text      | Padding Left 10 px / Top 14 px / Bottom 15 px | "#0C0C20" at 60% opacity |
