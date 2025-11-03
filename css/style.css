@@ -101,6 +101,7 @@ footer ul li a:hover {
     object-fit: cover;
     display: block;
     border-radius: 15px;
+
 }
 
 .carousel-content {
@@ -112,10 +113,17 @@ footer ul li a:hover {
 }
 
 .carousel-content p {
+    font-family: 'Figtree', sans-serif;
     font-size: 72px;
     font-weight: 700;
     margin: 0 0 20px 0;
     text-shadow: 2px 2px 4px #0C0C20;
+}
+
+.carousel-image_text-1 {
+    display: block;
+    justify-content: center;
+    align-items: center;
 }
 
 .shop-now {
