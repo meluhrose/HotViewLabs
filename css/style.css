@@ -7,6 +7,16 @@ body {
     color: #0C0C20;
 }
 
+h1 {
+    font-family: 'Figtree', sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    color: #0C0C20;
+    text-align: center;
+}   
+
+/* Header styles */
+
 header {
     position: relative;
     padding: 30px;
@@ -81,14 +91,14 @@ footer ul li a:hover {
 
 .carousel-container {
     display: flex;
-    width: 300%; /* Width for 3 slides */
+    width: 300%;
     height: 100%;
     transition: transform 0.5s ease-in-out;
 }
 
 .carousel-slide {
     position: relative;
-    width: 33.333%; /* Each slide takes 1/3 of container */
+    width: 33.33%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -176,19 +186,62 @@ footer ul li a:hover {
     right: 20px;
 }
 
-.carousel-nav::before {
+
+.carousel-nav__prev {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #F2E0D0;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    transition: background-color 0.5s ease;
+    left: 20px;
+}
+
+.carousel-nav__next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #F2E0D0;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    transition: background-color 0.5s ease;
+    right: 20px;
+}
+
+.carousel-nav__prev:hover,
+.carousel-nav__next:hover {
+    background-color: #401713;
+}
+
+.carousel-nav__prev::before,
+.carousel-nav__next::before {
     content: '';
     width: 0;
     height: 0;
     border-style: solid;
 }
 
-.carousel-nav.prev::before {
+.carousel-nav__prev::before {
     border-width: 8px 12px 8px 0;
     border-color: transparent #0C0C20 transparent transparent;
 }
 
-.carousel-nav.next::before {
+.carousel-nav__next::before {
     border-width: 8px 0 8px 12px;
     border-color: transparent transparent transparent #0C0C20;
 }
@@ -302,14 +355,14 @@ footer ul li a:hover {
 
 .carousel-container {
     display: flex;
-    width: 300%; 
+    width: 500%; /* Updated for 5 slides (3 original + 2 clones) */
     height: 100%;
     transition: transform 0.5s ease-in-out;
 }
-
+ 
 .carousel-slide {
     position: relative;
-    width: 33.333%;
+    width: 20%; /* Updated for 5 slides (100% / 5 = 20%) */
     height: 100%;
     display: flex;
     align-items: center;
@@ -322,7 +375,6 @@ footer ul li a:hover {
     object-fit: cover;
     display: block;
     border-radius: 15px;
-
 }
 
 .carousel-content {
@@ -337,12 +389,8 @@ footer ul li a:hover {
     font-family: 'Figtree', sans-serif;
     font-size: 72px;
     font-weight: 700;
-    margin: 0 20px 80px 0;
+    margin: 0 20px 5px 0;
     text-shadow: 2px 2px 4px #0C0C20;
-}
-
-.carousel-image_text-1 {
-    margin: 0 20px 80px 20px;
 }
 
 .shop-now {
@@ -437,6 +485,49 @@ footer ul li a:hover {
     background-color: white;;
 }
 
+
+/*Featured Products styles*/
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+    margin: 32px 35px 81px;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border: #A65E4E 3px solid;
+}
+
+.product-card img {
+    width: 100%;
+    height: 352px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 15px 0;
+    position: relative;
+    right: 74px;
+    bottom: 15px;
+}
+
+.product-card_rating {
+    position: relative;
+    left: 85px;
+    bottom: 70px;
+}
 
 
 /*mobile menu styles*/

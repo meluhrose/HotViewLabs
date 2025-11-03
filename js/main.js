@@ -1,35 +1,121 @@
-import"api.js";
+document.addEventListener("DOMContentLoaded", () => {
+    const carouselContainer = document.querySelector(".carousel-container");
+    const slides = document.querySelectorAll(".carousel-slide");
+    const prevButton = document.querySelector(".carousel-nav__prev");
+    const nextButton = document.querySelector(".carousel-nav__next");
+    const indicators = document.querySelectorAll(".carousel-indicator");
 
 
-const carouselContainer = document.querySelector(".carousel-container");
-const slides = document.querySelectorAll(".carousel-slide");
-const prevButton = document.querySelector(".carousel-nav.prev");
-const nextButton = document.querySelector(".carousel-nav.next");
-const indicators = document.querySelectorAll(".carousel-indicator");
+    if (!carouselContainer || !slides.length || !prevButton || !nextButton) {
+        console.error("Carousel elements not found:", {
+            carouselContainer: !!carouselContainer,
+            slides: slides.length,
+            prevButton: !!prevButton,
+            nextButton: !!nextButton
+        });
+        return;
+    }
 
-let currentSlide = 0;
-
-function updateCarousel() {
-    const offset = -currentSlide * 100;
-    carouselContainer.style.transform = `translateX(${offset}%)`;
-    indicators.forEach((indicator, index) => {
-        indicator.classList.toggle('active', index === currentSlide);
+    console.log("Access to carousel granted", {
+        slides: slides.length,
+        carouselContainer: carouselContainer,
+        buttons: { prev: prevButton, next: nextButton }
     });
-}
 
-prevButton.addEventListener("click", () => {
-    currentSlide = currentSlide > 0 ? currentSlide - 1 : slides.length - 1;
-    updateCarousel();
-});
+    let currentIndex = 1;
+    let interval;
+    const slideCount = slides.length;
+    const slideWidth =  100 / slideCount;
 
-nextButton.addEventListener("click", () => {
-    currentSlide = currentSlide < slides.length - 1 ? currentSlide + 1 : 0;
-    updateCarousel();
-});
+    //Clone first and last slide for infinite looping//
+    const firstClone = slides[0].cloneNode(true);
+    const lastClone = slides[slideCount - 1].cloneNode(true);
+    firstClone.classList.add("clone");
+    lastClone.classList.add("clone");
 
-indicators.forEach((indicator, index) => {
-    indicator.addEventListener("click", () => {
-        currentSlide = index;
-        updateCarousel();
+    carouselContainer.appendChild(firstClone);
+    carouselContainer.insertBefore(lastClone, carouselContainer.firstChild);
+    
+    const allSlides = document.querySelectorAll(".carousel-slide");
+    const totalSlides = allSlides.length;
+
+    //Set initial position//
+    carouselContainer.style.transform = `translateX(-${20}%)`;
+
+    //Update Active indicator//
+    function updateIndicators() {
+        indicators.forEach((dot, index) => {
+            dot.classList.toggle("active", index === getRealIndex());
+        });
+    }
+
+    function getRealIndex() {
+        if (currentIndex === 0) return slideCount - 1;
+        if (currentIndex === totalSlides - 1) return 0;
+        return currentIndex - 1;
+    }
+
+    //Move to slide//
+    function moveToSlide(index) {
+        carouselContainer.style.transition = "transform 0.5s ease-in-out";
+        carouselContainer.style.transform = `translateX(-${index * 20}%)`;
+        currentIndex = index;
+    }
+
+    //Snap loop after animation//
+    carouselContainer.addEventListener("transitionend", () => {
+        const currentSlide = allSlides[currentIndex];
+        if (currentSlide.classList.contains("clone")) {
+            carouselContainer.style.transition = "none";
+            if (currentIndex === 0) { 
+                currentIndex = slideCount;
+            } else if (currentIndex === totalSlides - 1) {
+                currentIndex = 1;
+            }
+            carouselContainer.style.transform = `translateX(-${currentIndex * 20}%)`;
+        }
+        updateIndicators();
     });
+
+    //Previous & Next Buttons//
+    prevButton.addEventListener("click", () => {
+        if (currentIndex <= 0) return;
+        moveToSlide(currentIndex - 1);
+        resetAutoplay();
+    });
+
+    nextButton.addEventListener("click", () => {
+        if (currentIndex >= totalSlides - 1) return;
+        moveToSlide(currentIndex + 1);
+        resetAutoplay();
+    });
+
+    //Indicators controls//
+    indicators.forEach((dot,i) => {
+        dot.addEventListener("click", () => {
+            moveToSlide(i + 1);
+            resetAutoplay();
+        });
+    });
+
+    //Autoplay functionality//
+    function startAutoplay() {
+        interval = setInterval(() => {
+            moveToSlide(currentIndex + 1);
+        }, 3000);
+    }
+
+    function stopAutoplay() {
+        clearInterval(interval);
+    }
+
+    function resetAutoplay() {
+        stopAutoplay();
+        startAutoplay();
+    }
+
+    document.querySelector(".carousel").addEventListener("mouseenter", stopAutoplay);
+    document.querySelector(".carousel").addEventListener("mouseleave", startAutoplay);
+
+    startAutoplay();
 });
