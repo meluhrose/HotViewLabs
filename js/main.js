@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentIndex = 1;
     let interval;
     const slideCount = slides.length;
-    const slideWidth =  100 / slideCount;
 
     //Clone first and last slide for infinite looping//
     const firstClone = slides[0].cloneNode(true);
@@ -79,13 +78,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Previous & Next Buttons//
     prevButton.addEventListener("click", () => {
-        if (currentIndex <= 0) return;
         moveToSlide(currentIndex - 1);
         resetAutoplay();
     });
 
     nextButton.addEventListener("click", () => {
-        if (currentIndex >= totalSlides - 1) return;
         moveToSlide(currentIndex + 1);
         resetAutoplay();
     });
@@ -100,10 +97,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Autoplay functionality//
     function startAutoplay() {
-        interval = setInterval(() => {
-            moveToSlide(currentIndex + 1);
-        }, 3000);
-    }
+        interval = setInterval(() => moveToSlide(currentIndex + 1), 6000);
+        }
 
     function stopAutoplay() {
         clearInterval(interval);
@@ -117,5 +112,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".carousel").addEventListener("mouseenter", stopAutoplay);
     document.querySelector(".carousel").addEventListener("mouseleave", startAutoplay);
 
+    moveToSlide(currentIndex);
     startAutoplay();
 });
