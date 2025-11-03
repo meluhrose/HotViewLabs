@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const totalSlides = allSlides.length;
 
     //Set initial position//
-    carouselContainer.style.transform = `translateX(-${20}%)`;
+    carouselContainer.style.transform = `translateX(-${100}%)`;
 
     //Update Active indicator//
     function updateIndicators() {
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //Move to slide//
     function moveToSlide(index) {
         carouselContainer.style.transition = "transform 0.5s ease-in-out";
-        carouselContainer.style.transform = `translateX(-${index * 20}%)`;
+        carouselContainer.style.transform = `translateX(-${index * 100}%)`;
         currentIndex = index;
     }
 
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } else if (currentIndex === totalSlides - 1) {
                 currentIndex = 1;
             }
-            carouselContainer.style.transform = `translateX(-${currentIndex * 20}%)`;
+            carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
         }
         updateIndicators();
     });
