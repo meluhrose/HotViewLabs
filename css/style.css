@@ -275,64 +275,74 @@ footer ul li a:hover {
 /*Featured Products styles*/
 
 .featured-products {
-    padding: 50px;
+    padding: 20px;
 }
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(500px, 3fr));
-    gap: 50px;
-    margin: 50px;
-    padding: 40px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    justify-content: center;
+    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 0 1rem;
 }
 
 .product-card {
-    width: 420px;
-    height: 525px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: hidden;
-    text-align: center;
-    padding: 35px 35px 81px;
+    text-decoration: none;
     background-color: #ffffff;
     border: #A65E4E 3px solid;
+    overflow: hidden;
+    width: 100%;
+    max-width: 320px;
+    transition: transform 0.3s ease, box-shadow 0.1s ease;
+    padding-bottom: 1rem;
 }
 
 .product-card:hover {
-    transform: translateY(-1px);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .product-card img {
-    width: 100%;
+    width: calc(100% - 20px);
     height: 352px;
     object-fit: cover;
-    margin-bottom: 15px;
+    background-color: #fff;
+    display: block;
+    margin: 10px auto 0;
+    box-sizing: border-box;
+}
+
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    
 }
 
 .product-card h3 {
     font-family: 'Inter', sans-serif;
-    font-size: 18px;
+    font-size: 1rem;
     font-weight: 400;
     text-transform: uppercase;
-    position: relative;
-    right: 107px;
-    bottom: 21px;
 }
 
 .product-card_rating {
-    position: relative;
-    left: 183px;
-    bottom: 70px;
-    font-size: 14px;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
     color: #0C0C20;
-    margin: 10px 0;
+    gap: 0.3rem;
 }
 
-.product-card p:last-child {
-    position: relative;
-    right: 178px;
-    bottom: 80px;
+.product-card_price {
+    font-size: 1rem;
+    color: #0C0C20;
+    margin-bottom: 2rem;
 }
 
 /* Loading styles */
@@ -361,4 +371,13 @@ footer ul li a:hover {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
