@@ -24,7 +24,7 @@ function getProductIdFromUrl() {
 
 async function fetchSingleProduct() {
     try {
-        const productContainer = document.getElementById("product-container");
+        const productContainer = document.getElementsByClassName("product-grid");
         const productId = getProductIdFromUrl();
 
         if (!productId) {
@@ -43,15 +43,17 @@ async function fetchSingleProduct() {
 
         if (productContainer) {
             productContainer.innerHTML = `
-                <div class="product-details">
+                <div class="product-info">
                     <img src="${product.image?.url || product.image}" 
                          alt="${product.image?.alt || product.title}">
-                    <h1>${product.title}</h1>
+                    <div class="product-header">
+                         <h3>${product.title}</h3>
+                         <p class="product-rating">Rating: ${product.rating || 'N/A'}</p>
+                    </div>
                     <p class="product-price">$${product.price || '0.00'}</p>
-                    <p class="product-rating">Rating: ${product.rating || 'N/A'}</p>
                 </div>`;
         }
-
+//
         return product;
     } catch (error) {
         const productContainer = document.getElementById("product-container");
@@ -82,11 +84,15 @@ async function loadFeaturedProducts() {
             
             productGrid.innerHTML = featuredProducts.map(product => `
                 <a href="product.html?id=${product.id}" class="product-card">
+                <div class="product-info">
                     <img src="${product.image?.url || product.image}" 
                          alt="${product.image?.alt || product.title}">
-                    <h3>${product.title || 'Product Name'}</h3>
-                    <p class="product-card_rating">${product.rating || 'N/A'} ⭐</p>
+            <div class="product-header">
+                         <h3>${product.title || 'Product Name'}</h3>
+                    <p class="product-card_rating">${product.rating || 'N/A'}<i class="fa-solid fa-star" style="color: #735149;"></i></p>
+                    </div>
                     <p class="product-price">$${product.price || 'N/A'}</p>
+                </div>
                 </a>
             `).join('');
         } else {
