@@ -56,25 +56,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Move to slide//
     function moveToSlide(index) {
-        carouselContainer.style.transition = "transform 0.5s ease-in-out";
-        carouselContainer.style.transform = `translateX(-${index * 100}%)`;
-        currentIndex = index;
+
+    if (index < 0) index = totalSlides - 1;
+    if (index >= totalSlides) index = 0;
+
+    carouselContainer.style.transition = "transform 0.5s ease-in-out";
+    carouselContainer.style.transform = `translateX(-${index * 100}%)`;
+    currentIndex = index;
+}
+
+
+  // Snap loop after animation
+carouselContainer.addEventListener("transitionend", () => {
+    if (currentIndex < 0 || currentIndex >= totalSlides) return;
+
+    const currentSlide = allSlides[currentIndex];
+    if (!currentSlide) return;
+
+    if (currentSlide.classList.contains("clone")) {
+        carouselContainer.style.transition = "none";
+
+        if (currentIndex === 0) {
+            currentIndex = slideCount;
+        } else if (currentIndex === totalSlides - 1) {
+            currentIndex = 1;
+        }
+
+        // Forces a reflow before resetting the transform
+        void carouselContainer.offsetWidth;
+
+        carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
 
-    //Snap loop after animation//
-    carouselContainer.addEventListener("transitionend", () => {
-        const currentSlide = allSlides[currentIndex];
-        if (currentSlide.classList.contains("clone")) {
-            carouselContainer.style.transition = "none";
-            if (currentIndex === 0) { 
-                currentIndex = slideCount;
-            } else if (currentIndex === totalSlides - 1) {
-                currentIndex = 1;
-            }
-            carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-        updateIndicators();
-    });
+    updateIndicators();
+});
+
 
     //Previous & Next Buttons//
     prevButton.addEventListener("click", () => {
