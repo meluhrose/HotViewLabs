@@ -23,46 +23,79 @@ function getProductIdFromUrl() {
 }
 
 async function fetchSingleProduct() {
-    try {
-        const productContainer = document.getElementsByClassName("product-grid");
-        const productId = getProductIdFromUrl();
+  try {
+    const productContainer = document.querySelector(".product-details"); 
+    const productId = getProductIdFromUrl();
 
-        if (!productId) {
-            if (productContainer) {
-                productContainer.innerHTML = "<p>Product not found.</p>";
-            }
-            return;
-        }
-
-        const response = await fetch(`${API_URL}/${productId}`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const result = await response.json();
-        const product = result.data;
-
-        if (productContainer) {
-            productContainer.innerHTML = `
-                <div class="product-info">
-                    <img src="${product.image?.url || product.image}" 
-                         alt="${product.image?.alt || product.title}">
-                    <div class="product-header">
-                         <h3>${product.title}</h3>
-                         <p class="product-rating">Rating: ${product.rating || 'N/A'}</p>
-                    </div>
-                    <p class="product-price">$${product.price || '0.00'}</p>
-                </div>`;
-        }
-//
-        return product;
-    } catch (error) {
-        const productContainer = document.getElementById("product-container");
-        if (productContainer) {
-            productContainer.innerHTML = "<p>Failed to load product.</p>";
-        }
-        console.error("Fetch error:", error);
+    if (!productId) {
+      if (productContainer) {
+        productContainer.innerHTML = "<p>Product not found.</p>";
+      }
+      return;
     }
+
+    const response = await fetch(`${API_URL}/${productId}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
+    const result = await response.json();
+    const product = result.data;
+
+    if (productContainer) {
+      productContainer.innerHTML = `
+        <img src="${product.image?.url || product.image}" 
+             alt="${product.image?.alt || product.title}">
+        <div class="product-info">
+            <div class="product-info__header">
+                <h2>${product.title}</h2>
+                <button class="share-btn"><i class="fa-solid fa-arrow-up-from-bracket" style="color: #735149;"></i></button>
+            </div>
+          <p class="product-description">${product.description || "No description available."}</p>
+          <p class="product-price">$${product.price?.toFixed(2) || "0.00"}</p>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+        `;
+
+    //Share button functionality//
+
+      const shareButton = productContainer.querySelector(".share-btn");
+      const shareURL = `${window.location.origin}/product.html?id=${product.id}`;
+
+      shareButton.addEventListener("click", async () => {
+        if (navigator.share) {
+            try {
+                await navigator.share({
+                    title: product.title,
+                    text: `Check out this product: ${product.title}`,
+                    url: shareURL,
+                });
+            } catch (error) {
+                console.error("Error sharing:", error);
+            }
+        } else {
+            try {
+                await navigator.clipboard.writeText(shareURL);
+                alert("Product URL has been copied!");
+            } catch (error) {
+                console.error("Error copying to clipboard:", error);
+                alert("Failed to copy product URL.");
+            }
+        }
+        
+    });
+    }
+
+    return product;
+  } catch (error) {
+    const productContainer = document.querySelector(".product-details");
+    if (productContainer) {
+      productContainer.innerHTML = "<p>Failed to load product.</p>";
+    }
+    console.error("Fetch error:", error);
+  }
 }
+
 
 // Load featured products for homepage
 async function loadFeaturedProducts() {
