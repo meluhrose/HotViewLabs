@@ -373,11 +373,15 @@ footer ul li a:hover {
     100% { transform: rotate(360deg); }
 }
 
-
-
 /* Responsive styles */
 @media (max-width: 768px) {
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-details {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
   }
 }
