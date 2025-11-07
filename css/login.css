@@ -1,0 +1,104 @@
+.login-container {
+    width: 400px;
+    max-width: 90%;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border: #401713 4px solid;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.login-container h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0C0C20;
+    text-align: center;
+}
+
+.login-form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Form Fields */
+
+.login-form-group label {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #401713;
+    align-self: flex-start;
+    margin-left: 12.5%;
+}
+
+
+.login-form-group input {
+    width: 80%;
+    max-height: 48px;
+    padding: 10px;
+    border: 2px solid rgba(12, 12, 32, 0.2);
+    border-radius: 8px;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #401713;
+}
+
+input:required:invalid {
+    border-color: #C53122;
+}
+
+:-ms-input-placeholder {
+    color: #A9A9A9;
+}
+
+/* Login Button */
+.login-btn {
+    padding: 0.8rem 2rem;
+    width: 75%;
+    padding: 12px;
+    background-color: #F2E0D0;
+    color: #401713;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    background-color: #401713;
+    color: #BFA095;
+}
+
+/* Links */
+
+.forgot-password-link {
+    display: block;
+    text-align: right;
+    margin-top: 15px;
+    font-size: 16px;
+    color: #401713;
+}
+
+.register-link {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #401713;
+}
+
+.forgot-password-link a, .register-link a {
+    color: #401713;
+    font-weight: 600;
+    text-decoration: none;
+}
