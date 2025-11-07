@@ -97,6 +97,11 @@ input:required:invalid {
     color: #401713;
 }
 
+.forgot-password-link {
+    padding-right: 32px;
+    margin-bottom: 33px;
+}
+
 .forgot-password-link a, .register-link a {
     color: #401713;
     font-weight: 600;
