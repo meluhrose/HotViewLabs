@@ -1,0 +1,31 @@
+.product-info__header {
+    display: flex;
+    gap: 20px;
+}
+
+.share-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #401713;
+}
+
+.product-details {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding-top: 151px;
+}
+
+.product-details img {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.customer-reviews {
+    display: flex;
+    flex-direction: column;
+    align-items:first baseline;
+    margin-bottom: 427px;
+}
