@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/account.css">
 </head>
 <body>
 <header>
@@ -21,30 +22,30 @@
     </div>
 </header>
     <main>
+        <div class="register-container">
+        <h1>Register</h1>
         <form id="registerForm">
-            <div>
-                <label for="Name">Name:</label>
+            <div class="register-form-group">
+                <label for="Name">Name</label>
                 <input type="text" id="name" name="name" required>
             </div>
-            <div>
-                <label for="email">Email:</label>
+            <div class="register-form-group">
+                <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>
             </div>
-            
-            <div>
-                <label for="password">Password:</label>
+            <div class="register-form-group">
+                <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            
-            <div>
-                <label for="confirmPassword">Confirm Password:</label>
+            <div class="register-form-group">
+                <label for="confirmPassword">Confirm Password</label>
                 <input type="password" id="confirmPassword" name="confirmPassword" required>
             </div>
-            
-            <button type="submit">Register</button>
+            <button type="submit" class="register-btn cta">Submit</button>
         </form>
-        
-        <p>Already a member? <a href="login.html">LOGIN</a></p>
+
+        <p class="register-link">Already a member? <a href="login.html" style="font-weight: 600;">LOGIN</a></p>
+        </div>
     </main>
 </body>
 <footer>

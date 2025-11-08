@@ -53,7 +53,7 @@ async function fetchSingleProduct() {
             </div>
           <p class="product-description">${product.description || "No description available."}</p>
           <p class="product-price">$${product.price?.toFixed(2) || "0.00"}</p>
-          <button class="add-to-cart">Add to Cart</button>
+          <button class="add-to-cart cta">Add to Cart</button>
         </div>
         `;
 
@@ -210,7 +210,7 @@ function replaceCarouselContent(products) {
             <div class="carousel-content">
                 <p class="carousel-image_text-${index + 1}">${carouselTexts[index] || 'Featured Product'}</p>
                 <a href="product.html?id=${product.id}">
-                    <button class="shop-now">Shop Now</button>
+                    <button class="shop-now cta">Shop Now</button>
                 </a>
             </div>
         </div>

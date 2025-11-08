@@ -1,22 +1,24 @@
-.login-container {
-    width: 400px;
+/* Login Page & Register Page Styles */
+
+.login-container, .register-container {
+    width: 532px;
     max-width: 90%;
-    margin: 100px auto;
-    padding: 30px;
+    margin: 100px auto 200px auto;
+    padding: 20px;
     background-color: #ffffff;
     border: #401713 4px solid;
     border-radius: 20px;
     text-align: center;
 }
 
-.login-container h1 {
+.login-container h1, .register-container h1 {
     font-size: 24px;
     font-weight: 700;
-    color: #0C0C20;
+    text-transform: uppercase;
     text-align: center;
 }
 
-.login-form-group {
+.login-form-group, .register-form-group {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -26,17 +28,18 @@
 
 /* Form Fields */
 
-.login-form-group label {
+.login-form-group label, .register-form-group label {
+    font-family: 'Inter', sans-serif;
     font-size: 18px;
-    margin-bottom: 10px;
     color: #401713;
+    margin-bottom: 10px;
     align-self: flex-start;
     margin-left: 12.5%;
 }
 
 
-.login-form-group input {
-    width: 80%;
+.login-form-group input, .register-form-group input {
+    width: 70%;
     max-height: 48px;
     padding: 10px;
     border: 2px solid rgba(12, 12, 32, 0.2);
@@ -51,44 +54,54 @@ input:focus {
     border-color: #401713;
 }
 
-input:required:invalid {
+input:invalid:user-invalid {
     border-color: #C53122;
 }
 
-:-ms-input-placeholder {
-    color: #A9A9A9;
+/* Remember Me Checkbox */
+.remember-me {
+    display: flex;
+    align-items: center;
+    width: 73%;
+    gap: 8px;
+    margin: 10px auto 0;
 }
 
-/* Login Button */
-.login-btn {
+.remember-me label {
+  color: #401713;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.remember-me input[type="checkbox"] {
+    flex-shrink: 0;
+    accent-color: #401713;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+/* Login & Register Button */
+.login-btn, .register-btn {
     padding: 0.8rem 2rem;
     width: 75%;
     padding: 12px;
-    background-color: #F2E0D0;
-    color: #401713;
-    text-transform: uppercase;
-    font-weight: 600;
-    border: none;
-    border-radius: 8px;
-    font-size: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 10px;
 }
 
-.login-btn:hover {
+.login-btn:hover, .register-btn:hover {
     background-color: #401713;
     color: #BFA095;
 }
 
 /* Links */
-
 .forgot-password-link {
     display: block;
+    width: 73%;
+    margin: 10px auto 25px auto;
     text-align: right;
-    margin-top: 15px;
     font-size: 16px;
-    color: #401713;
 }
 
 .register-link {
@@ -98,7 +111,6 @@ input:required:invalid {
 }
 
 .forgot-password-link {
-    padding-right: 32px;
     margin-bottom: 33px;
 }
 
