@@ -1,0 +1,51 @@
+.shipping-info {
+    max-width: 554px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border: 4px solid #401713;
+    border-radius: 20px;
+}
+
+.shipping-info h1 {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.shipping-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 100%;
+}
+
+.form-row.two-column {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.shipping-form-group label {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.shipping-form-group input {
+    width: 70%;
+    max-height: 48px;
+    padding: 10px;
+    border: 2px solid rgba(12, 12, 32, 0.2);
+    border-radius: 8px;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
