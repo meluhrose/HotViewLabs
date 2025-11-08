@@ -22,7 +22,7 @@
 </header>
 <body>
     <div class="cart-container">
-        <div id="cart-items-header" class="cart-items-header">
+        <div class="cart-item-header">
             <ul>
                 <li>ITEM</li>
                 <li>PRICE</li>
@@ -30,16 +30,18 @@
                 <li>TOTAL</li>
             </ul>
         </div>
-        <div class="cart-item">
-            <img src="assets/1-perfume-white.jpg" alt="product information goes here">
-            <p>Product Name</p>
-            <p>$12.22</p>
+        <div id="cart-item" class="cart-item">
+            <div id="item-details" class="item-details">
+                <img src="assets/1-perfume-white.jpg" alt="product information goes here">
+                <p>Product Name</p>
+            </div>
+            <p class="item-price">$12.22</p>
             <div class="quantity-selector">
                 <button class="quantity-btn minus" aria-label="Decrease quantity">−</button>
                 <input type="number" class="quantity-input" value="1" min="1">
                 <button class="quantity-btn plus" aria-label="Increase quantity">+</button>
             </div>
-            <div class="item-total">Total: $<span class="item-total-amount">0.00</span></div>
+            <div class="item-total">$<span class="item-total-amount">0.00</span></div>
             <button class="remove-item-btn">x</button>
         </div>
         <div class="cart-summary">

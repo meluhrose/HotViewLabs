@@ -5,62 +5,68 @@
     flex-direction: column;
     justify-content: flex-end;
     max-width: 1200px;
-    margin: 0 auto 0;
-    padding: 30px;
+    margin:  150px auto;
+    padding: 56px 46px;
     background-color: #ffffff;
     border: #401713 4px solid;
     border-radius: 20px;
-
 }
 
-.cart-items-header,
-.cart-item {
+.cart-item-header {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   align-items: center;
-  text-align: center;
-  gap: 10px;
-}
-
-.cart-items-header {
+  gap: 20px;
+  padding: 20px 0;
   font-weight: 700;
   text-transform: uppercase;
   padding-bottom: 10px;
   margin-bottom: 15px;
 }
 
-.cart-items-header li {
-  list-style: none;
-}
-
-.cart-items-header ul {
-    display: flex;
-    justify-content: space-between;
+.cart-item-header ul {
+    display: contents;
     padding: 0;
     margin: 0;
     list-style: none;
 }
 
-.cart-item img {
-  width: 100px;
-  height: auto;
-  border-radius: 8px;
-  justify-self: center;
+.cart-item-header li {
+    list-style: none;
+    text-align: center;
+}
+
+.cart-item-header li:first-child {
+    text-align: left;
 }
 
 .cart-item {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr auto;
     align-items: center;
     padding: 20px 0;
 }
 
 .cart-item img {
-    width: 10%;
-    height: auto;
-    margin-right: 20px;
-    border-radius: 8px;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+
+.item-details {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+}
+
+.cart-item .item-price,
+.cart-item .item-total {
+    text-align: center;;
+}
+
+.remove-item-btn {
+    justify-self: center;
 }
 
 /* Quantity Selector */
@@ -98,8 +104,7 @@
   font-size: 18px;
   border: none;
   background: transparent;
-  color: #735149;
-  font-weight: 600;
+  color: #0C0C20;
   appearance: textfield;
 }
 
@@ -130,7 +135,7 @@
   align-items: flex-end;
   margin-top: 20px;
   gap: 46px;
-  padding-right: 40px;
+  padding-right: 63px;
 }
 
 .subtotal-container {
