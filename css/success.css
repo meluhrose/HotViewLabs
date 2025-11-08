@@ -1,0 +1,24 @@
+.success-container {
+    max-width: 980px;
+    height: 440px;
+    margin: 100px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border: 4px solid #401713;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.success-container h1 {
+    font-size: 72px;
+    font-weight: 700;
+    color: #401713;
+    margin-bottom: 20px;
+}
+
+.success-container p {
+    font-size: 24px;
+    font-weight: 700;
+    color: #A65E4E;
+    margin-bottom: 30px;
+}
