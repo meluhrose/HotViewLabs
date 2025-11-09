@@ -23,6 +23,10 @@
     object-fit: cover;
 }
 
+.add-to-cart-btn {
+    display: none;
+}
+
 .customer-reviews {
     display: flex;
     flex-direction: column;
