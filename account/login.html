@@ -7,10 +7,11 @@
     <script src="https://kit.fontawesome.com/3f13ab78cf.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/account.css">
+    <link rel="stylesheet" href="../css/media.css">
     <script src="../js/auth.js" defer></script>
 </head>
 <header>
-    <img src="../assets/header-logo-desktop.png" alt="HotViewLabs Logo" class="header-logo">
+    <a href="../index.html"><img src="../assets/header-logo-desktop.png" alt="HotViewLabs Logo" class="header-logo"></a>
     <nav>
         <ul>
             <li><a href="#">Products</a></li>
@@ -20,6 +21,23 @@
     <div class="header-icons">
         <a href="../account/login.html"><img src="../assets/user.png" alt="User profile icon for accessing account login and registration"></a>
         <a href="../cart.html"><img src="../assets/shopping-bag.png" alt="Shopping Bag Icon that directs to cart"></a>
+    </div>
+    <button class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+        <div class="mobile-icons">
+            <a href="../account/login.html"><img src="../assets/user.png" alt="User profile icon for accessing account login and registration"></a>
+            <a href="../cart.html"><img src="../assets/shopping-bag.png" alt="Shopping Bag Icon that directs to cart"></a>
+        </div>
     </div>
 </header>
 <body>
@@ -52,4 +70,6 @@
         <li><a href="#">Privacy Policy</a></li>
     </ul>
 </footer>
+
+<script src="../js/main.js"></script>
 </html>

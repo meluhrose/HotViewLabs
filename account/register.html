@@ -6,6 +6,7 @@
     <title>Register</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/account.css">
+    <link rel="stylesheet" href="../css/media.css">
 </head>
 <body>
 <header>
@@ -18,7 +19,24 @@
     </nav>
     <div class="header-icons">
         <a href="../account/login.html"><img src="../assets/user.png" alt="User profile icon for accessing account login and registration"></a>
-        <a href="/cart.html"><img src="../assets/shopping-bag.png" alt="Shopping Bag Icon that directs to cart"></a>
+        <a href="../cart.html"><img src="../assets/shopping-bag.png" alt="Shopping Bag Icon that directs to cart"></a>
+    </div>
+    <button class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+        <div class="mobile-icons">
+            <a href="../account/login.html"><img src="../assets/user.png" alt="User profile icon for accessing account login and registration"></a>
+            <a href="../cart.html"><img src="../assets/shopping-bag.png" alt="Shopping Bag Icon that directs to cart"></a>
+        </div>
     </div>
 </header>
     <main>
@@ -56,4 +74,6 @@
         <li><a href="#">Privacy Policy</a></li>
     </ul>
 </footer>
+
+<script src="../js/main.js"></script>
 </html>

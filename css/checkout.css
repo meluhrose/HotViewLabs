@@ -1,4 +1,4 @@
-main {
+.checkout-page {
     display: grid;
     grid-template-columns: 1fr auto;
     max-width: 1200px;
