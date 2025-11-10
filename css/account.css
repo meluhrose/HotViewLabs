@@ -65,6 +65,7 @@ input:invalid:user-invalid {
     width: 73%;
     gap: 8px;
     margin: 10px auto 0;
+    padding-bottom: 19px;
 }
 
 .remember-me label {
