@@ -1,18 +1,42 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Hamburger Menu Functionality (works on all pages)
+    const hamburger = document.querySelector(".hamburger");
+    const mobileMenu = document.querySelector(".mobile-menu");
+
+    if (hamburger && mobileMenu) {
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            mobileMenu.classList.toggle("active");
+        });
+
+        // Close menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll("a");
+        mobileLinks.forEach((link) => {
+            link.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                mobileMenu.classList.remove("active");
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener("click", (e) => {
+            if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+                hamburger.classList.remove("active");
+                mobileMenu.classList.remove("active");
+            }
+        });
+    }
+
+    // Carousel functionality
     const carouselContainer = document.querySelector(".carousel-container");
     const slides = document.querySelectorAll(".carousel-slide");
     const prevButton = document.querySelector(".carousel-nav__prev");
     const nextButton = document.querySelector(".carousel-nav__next");
     const indicators = document.querySelectorAll(".carousel-indicator");
 
-
+    //Starts carousel if all required elements exist
     if (!carouselContainer || !slides.length || !prevButton || !nextButton) {
-        console.error("Carousel elements not found:", {
-            carouselContainer: !!carouselContainer,
-            slides: slides.length,
-            prevButton: !!prevButton,
-            nextButton: !!nextButton
-        });
+        console.log("Carousel elements not found");
         return;
     }
 
@@ -22,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         buttons: { prev: prevButton, next: nextButton }
     });
 
-    let currentIndex = 1;
+    let currentIndex = 0;
     let interval;
     const slideCount = slides.length;
 
@@ -128,6 +152,9 @@ carouselContainer.addEventListener("transitionend", () => {
     document.querySelector(".carousel").addEventListener("mouseenter", stopAutoplay);
     document.querySelector(".carousel").addEventListener("mouseleave", startAutoplay);
 
-    moveToSlide(currentIndex);
+    // Initialize carousel
+    updateIndicators();
+    // Enable transitions for subsequent moves
+    carouselContainer.style.transition = "transform 0.5s ease-in-out";
     startAutoplay();
 });

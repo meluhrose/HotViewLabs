@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/account.css">
+    <link rel="stylesheet" href="../css/media.css">
 </head>
 <body>
 <header>
@@ -17,34 +19,51 @@
     </nav>
     <div class="header-icons">
         <a href="../account/login.html"><img src="../assets/user.png" alt="User profile icon for accessing account login and registration"></a>
-        <a href="/cart.html"><img src="../assets/shopping-bag.png" alt="Shopping Bag Icon that directs to cart"></a>
+        <a href="../cart.html"><img src="../assets/shopping-bag.png" alt="Shopping Bag Icon that directs to cart"></a>
+    </div>
+    <button class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+        <div class="mobile-icons">
+            <a href="../account/login.html"><img src="../assets/user.png" alt="User profile icon for accessing account login and registration"></a>
+            <a href="../cart.html"><img src="../assets/shopping-bag.png" alt="Shopping Bag Icon that directs to cart"></a>
+        </div>
     </div>
 </header>
     <main>
+        <div class="register-container">
+        <h1>Register</h1>
         <form id="registerForm">
-            <div>
-                <label for="Name">Name:</label>
+            <div class="register-form-group">
+                <label for="Name">Name</label>
                 <input type="text" id="name" name="name" required>
             </div>
-            <div>
-                <label for="email">Email:</label>
+            <div class="register-form-group">
+                <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>
             </div>
-            
-            <div>
-                <label for="password">Password:</label>
+            <div class="register-form-group">
+                <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            
-            <div>
-                <label for="confirmPassword">Confirm Password:</label>
+            <div class="register-form-group">
+                <label for="confirmPassword">Confirm Password</label>
                 <input type="password" id="confirmPassword" name="confirmPassword" required>
             </div>
-            
-            <button type="submit">Register</button>
+            <button type="submit" class="register-btn cta">Submit</button>
         </form>
-        
-        <p>Already a member? <a href="login.html">LOGIN</a></p>
+
+        <p class="register-link">Already a member? <a href="login.html" style="font-weight: 600;">LOGIN</a></p>
+        </div>
     </main>
 </body>
 <footer>
@@ -55,4 +74,6 @@
         <li><a href="#">Privacy Policy</a></li>
     </ul>
 </footer>
+
+<script src="../js/main.js"></script>
 </html>

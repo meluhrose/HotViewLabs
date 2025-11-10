@@ -1,0 +1,119 @@
+@import url(../variables.css);
+
+/* Login Page & Register Page Styles */
+
+.login-container, .register-container {
+    width: 532px;
+    max-width: 90%;
+    margin: 100px auto 200px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: #401713 4px solid;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.login-container h1, .register-container h1 {
+    font-size: 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.login-form-group, .register-form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Form Fields */
+
+.login-form-group label, .register-form-group label {
+    font-family: var(--font-body);
+    font-size: var(--font-size-body);
+    color: var(--color-primary);
+    margin-bottom: 10px;
+    align-self: flex-start;
+    margin-left: 12.5%;
+}
+
+
+.login-form-group input, .register-form-group input {
+    width: 70%;
+    max-height: 48px;
+    padding: 10px;
+    border: 2px solid rgba(12, 12, 32, 0.2);
+    border-radius: 8px;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: var(--font-size-body);
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #401713;
+}
+
+input:invalid:user-invalid {
+    border-color: #C53122;
+}
+
+/* Remember Me Checkbox */
+.remember-me {
+    display: flex;
+    align-items: center;
+    width: 73%;
+    gap: 8px;
+    margin: 10px auto 0;
+    padding-bottom: 19px;
+}
+
+.remember-me label {
+  color: var(--color-primary);
+  font-size: var(--font-size-body);
+  white-space: nowrap;
+}
+
+.remember-me input[type="checkbox"] {
+    flex-shrink: 0;
+    accent-color: #401713;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+/* Login & Register Button */
+.login-btn, .register-btn {
+    padding: 0.8rem 2rem;
+    width: 75%;
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+/* Links */
+.forgot-password-link {
+    display: block;
+    width: 73%;
+    margin: 10px auto 25px auto;
+    text-align: right;
+    font-size: var(--font-size-small);
+}
+
+.register-link {
+    margin-top: 15px;
+    font-size: var(--font-size-small);
+    color: var(--color-primary);
+}
+
+.forgot-password-link {
+    margin-bottom: 33px;
+}
+
+.forgot-password-link a, .register-link a {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+}

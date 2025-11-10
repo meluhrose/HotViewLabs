@@ -6,9 +6,12 @@
     <title>Product Page</title>
     <script src="https://kit.fontawesome.com/3f13ab78cf.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/productpage.css">
+    <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/media.css">
+    <script src="js/main.js" defer></script>
     <script src="js/api.js" defer></script>
-    <script type="module" src="js/customer-reviews.js" defer></script>    
+    <script src="js/auth.js" defer></script>
+    <script type="module" src="js/customer-reviews.js" defer></script> 
 </head>
 <header>
     <a href="index.html"><img src="assets/header-logo-desktop.png" alt="HotViewLabs Logo" class="header-logo"></a>
@@ -22,15 +25,33 @@
         <a href="account/login.html"><img src="assets/user.png" alt="User profile icon for accessing account login and registration"></a>
         <a href="cart.html"><img src="assets/shopping-bag.png" alt="Shopping Bag Icon that directs to cart"></a>
     </div>
+    <button class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+        <div class="mobile-icons">
+            <a href="account/login.html"><img src="assets/user.png" alt="User profile icon for accessing account login and registration"></a>
+            <a href="cart.html"><img src="assets/shopping-bag.png" alt="Shopping Bag Icon that directs to cart"></a>
+        </div>
+    </div>
 </header>
 <body>
     <main>
         <section class="product-details">
-
-                <button class="add-to-cart">Add to Cart</button>
+                <div class="add-to-cart-btn-container">
+                    <button id="add-to-cart-btn" class="add-to-cart-btn cta">Add to Cart</button>
+                </div>
             </div>
         </section>
-        <section class="customer-reviews">
+        <section id="customer-review-container" class="customer-review-container">
             <h2>Customer Reviews</h2>
             <div id="customer-review">
                 <p><strong>Name</strong> ⭐⭐⭐⭐</p>

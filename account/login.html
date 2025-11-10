@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <script src="https://kit.fontawesome.com/3f13ab78cf.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/account.css">
+    <link rel="stylesheet" href="../css/media.css">
+    <script src="../js/auth.js" defer></script>
 </head>
 <header>
-    <img src="../assets/header-logo-desktop.png" alt="HotViewLabs Logo" class="header-logo">
+    <a href="../index.html"><img src="../assets/header-logo-desktop.png" alt="HotViewLabs Logo" class="header-logo"></a>
     <nav>
         <ul>
             <li><a href="#">Products</a></li>
@@ -18,22 +22,44 @@
         <a href="../account/login.html"><img src="../assets/user.png" alt="User profile icon for accessing account login and registration"></a>
         <a href="../cart.html"><img src="../assets/shopping-bag.png" alt="Shopping Bag Icon that directs to cart"></a>
     </div>
+    <button class="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+        <div class="mobile-icons">
+            <a href="../account/login.html"><img src="../assets/user.png" alt="User profile icon for accessing account login and registration"></a>
+            <a href="../cart.html"><img src="../assets/shopping-bag.png" alt="Shopping Bag Icon that directs to cart"></a>
+        </div>
+    </div>
 </header>
 <body>
-    <div class="container">
+    <div class="login-container">
         <h1>Login</h1>
         <form id="loginForm">
-            <div class="form-group">
-                <label for="email">Email:</label>
+            <div class="login-form-group">
+                <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>
             </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
+            <div class="login-form-group">
+                <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit">Login</button>
+            <div class="remember-me">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">Remember me</label>
+                </div>
+            <button type="submit" class="login-btn cta">Login</button>
         </form>
-        <p>Don't have an account? <a href="register.html">REGISTER</a></p>
+        <p class="forgot-password-link"><a href="#">Forgot password?</a></p>
+        <p class="register-link">Need an account? <a href="register.html" style="font-weight: 600; text-transform: uppercase;">REGISTER</a></p>
     </div>
 </body>
 <footer>
@@ -44,4 +70,6 @@
         <li><a href="#">Privacy Policy</a></li>
     </ul>
 </footer>
+
+<script src="../js/main.js"></script>
 </html>
