@@ -35,18 +35,24 @@
 
 .cart-item-header li {
     list-style: none;
-    text-align: center;
 }
 
 .cart-item-header li:first-child {
     text-align: left;
 }
 
-.cart-item {
+.cart-item-card {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr auto;
     align-items: center;
+    justify-content: space-evenly;
+    gap: 50px;
     padding: 20px 0;
+}
+
+.cart-item {
+    display: flex;
+    flex-direction: column;
 }
 
 .cart-item img {
@@ -62,9 +68,29 @@
     gap: 45px;
 }
 
+.cart-item-card .item-price,
+.cart-item-card .item-total {
+    text-align: center;
+}
+
 .cart-item .item-price,
 .cart-item .item-total {
-    text-align: center;;
+    text-align: center;
+}
+
+/* Discounted price styling in cart */
+.item-price .original-price {
+    text-decoration: line-through;
+    color: #0C0C20;
+    font-size: 14px;
+    display: block;
+}
+
+.item-price .discounted-price {
+    color: #C53122;
+    font-weight: 700;
+    font-size: 16px;
+    display: block;
 }
 
 .remove-item-btn {

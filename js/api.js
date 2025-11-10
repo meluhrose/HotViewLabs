@@ -22,118 +22,13 @@ function getProductIdFromUrl() {
     return params.get("id");
 }
 
-async function fetchSingleProduct() {
-  try {
-    const productContainer = document.querySelector(".product-details"); 
-    const productId = getProductIdFromUrl();
+// Single product fetching is handled by product-page.js
 
-    if (!productId) {
-      if (productContainer) {
-        productContainer.innerHTML = "<p>Product not found.</p>";
-      }
-      return;
-    }
+//async function fetchSingleProduct() {
 
-    const response = await fetch(`${API_URL}/${productId}`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    const result = await response.json();
-    const product = result.data;
-
-    if (productContainer) {
-      productContainer.innerHTML = `
-        <img src="${product.image?.url || product.image}" 
-             alt="${product.image?.alt || product.title}">
-        <div class="product-info">
-            <div class="product-info__header">
-                <h2>${product.title}</h2>
-                <button class="share-btn"><i class="fa-solid fa-arrow-up-from-bracket" style="color: #735149;"></i></button>
-            </div>
-          <p class="product-description">${product.description || "No description available."}</p>
-          <p class="product-price">$${product.price?.toFixed(2) || "0.00"}</p>
-          <div class="add-to-cart-btn-container">
-              <button class="add-to-cart-btn cta">Add to Cart</button>
-          </div>
-        </div>
-        `;
-
-    //Share button functionality//
-
-    const shareButton = productContainer.querySelector(".share-btn");
-    const shareURL = `${window.location.origin}/product.html?id=${product.id}`;
-
-      shareButton.addEventListener("click", async () => {
-        if (navigator.share) {
-            try {
-                await navigator.share({
-                    title: product.title,
-                    text: `Check out this product: ${product.title}`,
-                    url: shareURL,
-                });
-            } catch (error) {
-                console.error("Error sharing:", error);
-            }
-        } else {
-            try {
-                await navigator.clipboard.writeText(shareURL);
-                alert("Product URL has been copied!");
-            } catch (error) {
-                console.error("Error copying to clipboard:", error);
-                alert("Failed to copy product URL.");
-            }
-        }
-        
-    });
-    }
-
-    document.addEventListener("DOMContentLoaded", async () => {
-      const productId = getProductIdFromUrl();
-      if (!productId) return;
-    
-      const product = await fetchSingleProduct(productId);
-    
-      const productContainer = document.querySelector(".product-details");
-      productContainer.innerHTML = `
-        <img src="${product.image.url}" alt="${product.title}">
-        <h2>${product.title}</h2>
-        <p>${product.description}</p>
-        <p>$${product.price}</p>
-      `;
-    
-    
-      const reviewsContainer = document.getElementById("customer-review-container");
-      if (product.reviews?.length) {
-        reviewsContainer.innerHTML = product.reviews
-          .map(
-            (r) => `
-              <section class="customer-review-container">
-              <h2>Customer Reviews</h2>
-                <div id="customer-review">
-                <p class="review-user">${reviews.username || "Anonymous"} ${"★".repeat(r.rating || 0)}</p>
-                <p class="review-description">${r.description || ""}</p>
-                </div>
-              </section>
-            `
-          )
-          .join("");
-      } else {
-        reviewsContainer.innerHTML = "<p>No reviews yet.</p>";
-      }
-    });
-
-    return product;
-  } catch (error) {
-    const productContainer = document.querySelector(".product-details");
-    if (productContainer) {
-      productContainer.innerHTML = "<p>Failed to load product.</p>";
-    }
-    console.error("Fetch error:", error);
-  }
-}
-
-
+    //console.warn("fetchSingleProduct should be called from product-page.js");
+    //return null;
+//}
 
 // Load featured products for homepage
 async function loadFeaturedProducts() {
@@ -221,38 +116,6 @@ function replaceCarouselContent(products) {
     carouselContainer.innerHTML = newCarouselHTML;
 }
 
-// Update carousel with product data (legacy function for compatibility)
-function updateCarouselWithProducts(products) {
-    const carouselSlides = document.querySelectorAll(".carousel-slide");
-    
-    products.forEach((product, index) => {
-        if (carouselSlides[index]) {
-            const slide = carouselSlides[index];
-            const link = slide.querySelector("a");
-            const img = slide.querySelector("img");
-            const shopNowButton = slide.querySelector(".shop-now");
-
-            // Update image
-            if (img && product.image) {
-                img.src = product.image.url || product.image;
-                img.alt = product.image.alt || product.title;
-            }
-            
-            // Update Shop Now button link
-            if (link) {
-                link.href = `product.html?id=${product.id}`;
-            }
-
-            // Add click event to Shop Now button for extra safety
-            if (shopNowButton) {
-                shopNowButton.addEventListener("click", (e) => {
-                    e.preventDefault();
-                    window.location.href = `product.html?id=${product.id}`;
-                });
-            }
-        }
-    });
-}
 
 document.addEventListener("DOMContentLoaded", () => {
     if (window.location.pathname.includes("product.html")) {
