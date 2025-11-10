@@ -103,12 +103,12 @@ async function fetchSingleProduct() {
       `;
     
     
-      const reviewsContainer = document.getElementById("customer-review");
+      const reviewsContainer = document.getElementById("customer-review-container");
       if (product.reviews?.length) {
         reviewsContainer.innerHTML = product.reviews
           .map(
             (r) => `
-              <section class="customer-reviews-container">
+              <section class="customer-review-container">
               <h2>Customer Reviews</h2>
                 <div id="customer-review">
                 <p class="review-user">${reviews.username || "Anonymous"} ${"★".repeat(r.rating || 0)}</p>
