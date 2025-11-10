@@ -26,7 +26,7 @@
         top: 100%;
         left: 0;
         right: 0;
-        background-color: #F2E0D0;
+        background-color: var(--color-background);
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.3s ease;
@@ -54,7 +54,7 @@
         font-size: 16px;
         text-decoration: none;
         color: #0C0C20;
-        font-family: 'Figtree', sans-serif;
+        font-family: var(--font-heading);
         font-weight: 700;
         text-transform: uppercase;
     }
@@ -135,13 +135,17 @@
         font-size: 32px;
     }
 
-    .success-container p {
+    .success-container h2 {
         font-size: 16px;
     }
 }
 
 @media (max-width: 600px) {
     /* Product Grid */
+    .featured-products h1 {
+        font-size: var(--font-size-h2);
+    }
+    
     .product-grid {
         grid-template-columns: 1fr;
         gap: 1rem;

@@ -1,3 +1,5 @@
+@import url(variables.css);
+
 .checkout-page {
     display: grid;
     grid-template-columns: 1fr auto;
@@ -59,7 +61,7 @@
 }
 
 .shipping-form-group label, .payment-form-group label {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-body);
     font-size: 18px;
     margin: 11px 0 10px 0;
 }

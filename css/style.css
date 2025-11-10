@@ -1,3 +1,5 @@
+@import url(variables.css);
+
 /* Main body */
 
 body {
@@ -5,9 +7,9 @@ body {
     display: flex;
     flex-direction: column;
     margin: 0;
-    background-color: #F2E0D0;
-    font-family: 'Inter', sans-serif;
-    color: #0C0C20;
+    background-color: var(--color-background);
+    font-family: var(--font-body);
+    color: var(--color-text);
 }
 
 main {
@@ -15,18 +17,18 @@ main {
 }
 
 h1 {
-    font-family: 'Figtree', sans-serif;
-    font-size: 56px;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h1);
     font-weight: 700;
-    color: #0C0C20;
+    color: var(--color-text);
     text-align: center;
 }   
 
 p {
-    font-family: 'Inter', sans-serif;
-    font-size: 18px;
+    font-family: var(--font-body);
+    font-size: var(--font-size-body);
     line-height: 1.6;
-    color: #0C0C20;
+    color: var(--color-text);
 }
 
 /* Header styles */
@@ -44,8 +46,8 @@ header {
 }
 
 nav ul {
-    font-family: 'Figtree', sans-serif;
-    font-size: 24px;
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h2);
     font-weight: 700;
     text-transform: uppercase;
     list-style: none;   
@@ -55,7 +57,7 @@ nav ul {
 }
 nav ul li a {
     text-decoration: none;
-    color: #0C0C20;
+    color: var(--color-text);
 }
 
 .header-icons {
@@ -66,7 +68,7 @@ nav ul li a {
 
 .cta {
   display: inline-block;
-  background-color: #F2E0D0;
+  background-color: var(--color-background);
   font-size: 20px;
   text-align: center;
   color: #401713;
@@ -74,7 +76,7 @@ nav ul li a {
   font-weight: 600;
   letter-spacing: normal;
   white-space: nowrap;
-  border: 2px solid #401713;
+  border: var(--border-width-thin) solid #401713;
   border-radius: 8px;
   padding: 1em 2rem;
   max-height: 75px;
@@ -86,13 +88,8 @@ nav ul li a {
 }
 
 .cta:hover {
-  background-color: #401713;
-  color: #BFA095;
-}
-
-.cta:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+  background-color: var(--color-primary);
+  color: var(--color-background);
 }
 
 /* Footer styles */
@@ -114,7 +111,7 @@ footer ul {
 
 footer ul li a {
     text-decoration: none;
-    color: #0C0C20;
+    color: var(--color-text);
     font-weight: 600;
     gap: 10px;
 }
@@ -140,7 +137,7 @@ footer ul li a:hover {
   display: block;
   height: 3px;
   width: 100%;
-  background-color: #401713;
+  background-color: var(--color-primary);
   border-radius: 3px;
   transition: all 0.3s ease;
 }
@@ -201,27 +198,27 @@ footer ul li a:hover {
     position: absolute;
     bottom: 50px;
     left: 50px;
-    color: #F2E0D0;
+    color: var(--color-background);
     z-index: 2;
 }
 
 .carousel-content p {
-    font-family: 'Figtree', sans-serif;
+    font-family: var(--font-heading);
     font-size: 72px;
     font-weight: 700;
     margin: 0 0 20px 0;
-    text-shadow: 2px 2px 4px #0C0C20;
+    text-shadow: 2px 2px 4px var(--color-text);
 }
 
 .shop-now {
-    background-color: #F2E0D0;
-    color: #0C0C20;
-    border: #401713 2px solid;
-    border-radius: 15px;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    border: var(--border-width-thin) solid var(--color-border);
+    border-radius: var(--border-radius-medium);
     padding: 10px 30px;
     width: 207px;
     height: 49px;
-    font-family: 'Figtree', sans-serif;
+    font-family: var(--font-heading);
     font-size: 18px;
     font-weight: 600;
     text-transform: uppercase;
@@ -238,7 +235,7 @@ footer ul li a:hover {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #F2E0D0;
+    background-color: var(--color-background);
     border: none;
     width: 50px;
     height: 50px;
@@ -252,7 +249,7 @@ footer ul li a:hover {
 }
 
 .carousel-nav:hover {
-    background-color: #401713;
+    background-color: var(--color-border);
 }
 
 .carousel-nav.prev {
@@ -268,7 +265,7 @@ footer ul li a:hover {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #F2E0D0;
+    background-color: var(--color-background);
     border: none;
     width: 50px;
     height: 50px;
@@ -286,7 +283,7 @@ footer ul li a:hover {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #F2E0D0;
+    background-color: var(--color-background);
     border: none;
     width: 50px;
     height: 50px;
@@ -368,8 +365,8 @@ footer ul li a:hover {
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    background-color: #ffffff;
-    border: #A65E4E 3px solid;
+    background-color: var(--color-white);
+    border: var(--color-accent) 3px solid;
     overflow: hidden;
     max-width: 420px;
     height: auto;
@@ -386,7 +383,7 @@ footer ul li a:hover {
     max-width: 275px;
     height: 352px;
     object-fit: cover;
-    background-color: #fff;
+    background-color: var(--color-white);
     display: block;
     margin: 10px auto 0;
     box-sizing: border-box;
@@ -400,7 +397,7 @@ footer ul li a:hover {
 }
 
 .product-card h3 {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-heading);
     font-size: 1rem;
     font-weight: 400;
     text-transform: uppercase;
@@ -410,13 +407,12 @@ footer ul li a:hover {
     display: flex;
     align-items: center;
     font-size: 0.9rem;
-    color: #0C0C20;
     gap: 0.3rem;
 }
 
 .product-card_price {
     font-size: 1rem;
-    color: #0C0C20;
+    color: var(--color-text);
     margin-bottom: 2rem;
 }
 
@@ -426,7 +422,7 @@ footer ul li a:hover {
     justify-content: center;
     align-items: center;
     padding: 40px;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-body);
     font-size: 18px;
     color: #401713;
     grid-column: 1 / -1; 

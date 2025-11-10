@@ -1,3 +1,4 @@
+@import url(variables.css);
 /* Cart Page Styles */
 
 .cart-container {
@@ -96,7 +97,7 @@
 
 .quantity-btn:hover {
     background-color: #735149;
-    color: #F2E0D0;
+    color: var(--color-background);
 }
 
 .quantity-input {

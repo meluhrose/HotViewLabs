@@ -1,7 +1,27 @@
 :root {
-    --primary-color: #E74C3C;
-    --secondary-color: #2ecc71;
-    --font-color: #0C0C20;
-    --background-color: #F2E0D0;
-    --border-color: #401713;
+/*Typography*/
+--font-heading: 'Figtree', sans-serif;
+--font-body: 'Inter', sans-serif;
+
+--font-size-h1: 56px;
+--font-size-h2: 24px;
+--font-size-body: 18px;
+--font-size-small: 16px;
+
+/*Colours*/
+--color-background: #F2E0D0;
+--color-primary: #401713;
+--color-secondary: #735149;
+--color-text: #0C0C20;
+--color-accent: #A65E4E;
+--color-border: #401713;
+--color-white: #FFFFFF;
+
+/*Borders*/
+--border-radius-small: 8px;
+--border-radius-medium: 15px;
+--border-radius-large: 20px;
+--border-width-thin: 2px;
+--border-width-thick: 4px;
+
 }
