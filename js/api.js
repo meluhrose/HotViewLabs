@@ -53,7 +53,9 @@ async function fetchSingleProduct() {
             </div>
           <p class="product-description">${product.description || "No description available."}</p>
           <p class="product-price">$${product.price?.toFixed(2) || "0.00"}</p>
-          <button class="add-to-cart cta">Add to Cart</button>
+          <div class="add-to-cart-btn-container">
+              <button class="add-to-cart-btn cta">Add to Cart</button>
+          </div>
         </div>
         `;
 
@@ -101,15 +103,15 @@ async function fetchSingleProduct() {
       `;
     
     
-      const reviewsContainer = document.getElementById("customer-reviews");
+      const reviewsContainer = document.getElementById("customer-review");
       if (product.reviews?.length) {
         reviewsContainer.innerHTML = product.reviews
           .map(
             (r) => `
-              <section class="customer-reviews">
+              <section class="customer-reviews-container">
               <h2>Customer Reviews</h2>
                 <div id="customer-review">
-                <p class="review-user">${r.username || "Anonymous"} ${"★".repeat(r.rating || 0)}</p>
+                <p class="review-user">${reviews.username || "Anonymous"} ${"★".repeat(r.rating || 0)}</p>
                 <p class="review-description">${r.description || ""}</p>
                 </div>
               </section>
