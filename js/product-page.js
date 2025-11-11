@@ -44,6 +44,11 @@ function displayStarRatings() {
   });
 }
 
+function getProductIdFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get("id");
+}
+
 async function fetchSingleProduct() {
   try {
     const productContainer = document.querySelector(".product-detail-section");
@@ -83,7 +88,7 @@ async function fetchSingleProduct() {
             hasDiscount
               ? `
                 <p class="product-price">
-                  <span class="original-price" style="text-decoration: line-through; color: 0C0C20;">
+                  <span class="original-price" style="text-decoration: line-through; color: #0C0C20;">
                     $${product.price.toFixed(2)}
                   </span>
                   <span class="discounted-price">$${product.discountedPrice.toFixed(2)}</span>
@@ -135,12 +140,9 @@ async function fetchSingleProduct() {
     } else {
         if (addToCartBtn) {
             addToCartBtn.style.display = "block";
+            addToCartBtn.addEventListener("click", () => addProductToCart(product));
         }
     }
-    // Add to cart button functionality
-    addToCartBtn.addEventListener("click", () => {
-      addProductToCart(product);
-    });
 
     //Customer Reviews
     const reviewsContainer = document.getElementById("customer-review-container");
