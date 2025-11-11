@@ -77,10 +77,14 @@
     }
 
     /*Product Page */
-      .product-details {
+      .product-detail-section {
         flex-direction: column;
         align-items: center;
         padding: 20px;
+    }
+
+    .customer-review-container {
+        margin-left: 158px;
     }
 
     /* Checkout Page */
@@ -120,6 +124,11 @@
         text-align: center;
     }
 
+    /* Product Page */
+    .customer-review-container {
+        margin-left: 10px;
+    }
+
     /*cart page */
     .quantity-input {
         width: 12px;
@@ -130,7 +139,7 @@
         font-size: 14px;
     }
 
-    /*Suchout Page */
+    /*Success Page */
     .success-container h1 {
         font-size: 32px;
     }
@@ -145,7 +154,7 @@
     .featured-products h1 {
         font-size: var(--font-size-h2);
     }
-    
+
     .product-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
