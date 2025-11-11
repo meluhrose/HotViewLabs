@@ -108,7 +108,7 @@ async function fetchSingleProduct() {
         try {
           await navigator.share({
             title: product.title,
-            text: `You would love this ${product.title}`,
+            text: `You would love this! Check out "${product.title}" on HotViewLabs. ${shareURL}`,
             url: shareURL,
           });
         } catch (error) {
