@@ -124,32 +124,23 @@ async function fetchSingleProduct() {
       }
     });
 
-    // --- ADD TO CART FUNCTIONALITY (Login Required) ---
+    //Add to cart button visible when logged in//
     const addToCartBtn = productContainer.querySelector(".add-to-cart-btn");
-    const user = JSON.parse(localStorage.getItem("user")); // or "token", depending on your setup
 
-    // Show/hide button based on login status
+    const user = JSON.parse(localStorage.getItem("user"));
     if (!user) {
-      addToCartBtn.style.display = "none";
-      
-      // Create login prompt button
-      const loginPromptBtn = document.createElement("button");
-      loginPromptBtn.className = "login-prompt-btn cta";
-      loginPromptBtn.textContent = "Login to Add to Cart";
-      loginPromptBtn.addEventListener("click", () => {
-        // Pass current page as return URL
-        const currentPage = encodeURIComponent(window.location.href);
-        window.location.href = `account/login.html?returnTo=${currentPage}`;
-      });
-      
-      // Replace add to cart button with login prompt
-      addToCartBtn.parentNode.replaceChild(loginPromptBtn, addToCartBtn);
+        if (addToCartBtn) {
+            addToCartBtn.style.display = "none";
+        }
     } else {
-      // User is logged in - add click handler for cart functionality
-      addToCartBtn.addEventListener("click", () => {
-        addProductToCart(product);
-      });
+        if (addToCartBtn) {
+            addToCartBtn.style.display = "block";
+        }
     }
+    // Add to cart button functionality
+    addToCartBtn.addEventListener("click", () => {
+      addProductToCart(product);
+    });
 
     //Customer Reviews
     const reviewsContainer = document.getElementById("customer-review-container");
