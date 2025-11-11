@@ -2,6 +2,8 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 console.log(cart);
 
 const cartContainer = document.getElementById("cart-item");
+const cartContainerSummary = document.getElementById("checkout-summary-container");
+
 
 function updateCartDisplay(){
     cartContainer.innerHTML = "";
@@ -38,6 +40,9 @@ function updateCartDisplay(){
             <button class="remove-item-btn">x</button>
         `;
         cartContainer.appendChild(itemElement);
+
+
+
     });
     updateSubtotal();
 }
