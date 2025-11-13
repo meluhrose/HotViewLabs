@@ -7,10 +7,17 @@ const cartContainerSummary = document.getElementById("checkout-summary-container
 
 function updateCartDisplay(){
     cartContainer.innerHTML = "";
+
+    const checkoutBtn = document.querySelector(".checkout-btn");
+
     if (cart.length === 0) {
         cartContainer.innerHTML = "<p>Your cart is currently empty.</p><p>Start adding products to your cart!</p>";
+        
+        if (checkoutBtn) checkoutBtn.style.display = "none";
+
         updateSubtotal();
         return;
+
     }
     cart.forEach(item => {
         const itemElement = document.createElement("div");
@@ -44,6 +51,8 @@ function updateCartDisplay(){
 
 
     });
+
+    if (checkoutBtn) checkoutBtn.style.display = "block";
     updateSubtotal();
 }
 updateCartDisplay();
