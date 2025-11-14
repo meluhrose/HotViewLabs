@@ -74,7 +74,7 @@ async function fetchSingleProduct() {
         <div class="product-info__header">
           <h2>${product.title}</h2>
           <button class="share-btn">
-            <i class="fa-solid fa-arrow-up-from-bracket" style="color: #735149;"></i>
+            <i class="fa-solid fa-arrow-up-from-bracket" style="color: #735149;"></i> <p>Share</p>
           </button>
         </div>
         <p class="product-description">${product.description || "No description available."}</p>

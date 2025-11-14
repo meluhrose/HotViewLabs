@@ -129,6 +129,10 @@
         margin-left: 10px;
     }
 
+    .share-btn p {
+        display: none;
+    }
+
     /*cart page */
     .quantity-input {
         width: 12px;
