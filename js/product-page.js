@@ -79,7 +79,7 @@ async function fetchSingleProduct() {
         <div class="product-info__header">
           <h2>${product.title}</h2>
           <button class="share-btn">
-            <i class="fa-solid fa-arrow-up-from-bracket" style="color: #735149;"></i>
+            <i class="fa-solid fa-arrow-up-from-bracket" style="color: #735149;"></i> <p>Share</p>
           </button>
         </div>
         <p class="product-description">${product.description || "No description available."}</p>
@@ -103,8 +103,9 @@ async function fetchSingleProduct() {
       </div>
     `;
 
-    // --- SHARE BUTTON FUNCTIONALITY ---
+    // Share button functionality
     const shareButton = productContainer.querySelector(".share-btn");
+    if (!shareButton) return;
     const shareURL = `${window.location.origin}/product.html?id=${product.id}`;
 
     shareButton.addEventListener("click", async () => {
@@ -112,19 +113,17 @@ async function fetchSingleProduct() {
         try {
           await navigator.share({
             title: product.title,
-            text: `Check out this product: ${product.title}`,
+            text: `You would love this! Check out "${product.title}" on HotViewLabs. ${shareURL}`,
             url: shareURL,
           });
         } catch (error) {
           console.error("Error sharing:", error);
         }
-      } else {
+      } else if (navigator.clipboard) {
         try {
-          await navigator.clipboard.writeText(shareURL);
-          alert("Product URL has been copied!");
+          alert("Link copied to clipboard!");
         } catch (error) {
           console.error("Error copying to clipboard:", error);
-          alert("Failed to copy product URL.");
         }
       }
     });

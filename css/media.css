@@ -129,6 +129,10 @@
         margin-left: 10px;
     }
 
+    .share-btn p {
+        display: none;
+    }
+
     /*cart page */
     .quantity-input {
         width: 12px;
@@ -212,7 +216,7 @@
         grid-template-columns: 1fr;
     }
 
-    .cart-items {
+    .checkout-cart-item {
         grid-template-columns: 60px 1fr;
     }
 

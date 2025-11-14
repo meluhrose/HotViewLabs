@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/checkout.css">
     <link rel="stylesheet" href="css/media.css">
     <script src="js/main.js" defer></script>
+    <script src="js/auth.js" defer></script>
+    <script src="js/checkout.js" defer></script>
 </head>
 <header>
     <a href="index.html"><img src="assets/header-logo-desktop.png" alt="HotViewLabs Logo" class="header-logo"></a>
@@ -100,15 +102,13 @@
                         <label for="cvv">CVV</label>
                         <input type="text" id="cvv" name="cvv" placeholder="123" required>
                     </div>
-                <a href="success.html"><button type="submit" class="place-order-btn cta">Pay Now</button></a>
+                <button type="button" class="place-order-btn cta">Pay Now</button>
             </section>
         </div>
         <section class="checkout-cart-section">
             <h2>Cart Summary</h2>
-            <div id="cart-items" class="cart-items">
-                <img src="assets/10-hairdryer.jpg" alt="Hair Dryer">
-                <p class="product-name">Product Name Goes Here</p>
-                <p class="product-price">599,-</p>
+            <div id="checkout-cart-item" class="checkout-cart-item">
+            <!-- Cart items will be dynamically inserted here -->
             </div>
             <div class="subtotal-container">
                 <strong>Subtotal:</strong> $<span id="subtotal-amount">0.00</span>
