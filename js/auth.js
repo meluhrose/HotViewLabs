@@ -1,58 +1,110 @@
+//Login Page using mock users
+import { mockUsers } from "./mock.js";
 
-//Testing 
-const users = [];
-
-// Corrected createUser function
-function createUser(name, email, password) {
-    const newUser = { name, email, password };
-    users.push(newUser);
-    return newUser;
+function authenticateMockUser(email, password) {
+    const user = mockUsers.find(u => u.email === email && u.password === password);
+    return user || null;
 }
 
-function loginUser(email, password) {
-    const user = users.find(u => u.email === email && u.password === password);
-    if (user) {
-        localStorage.setItem("user", JSON.stringify(user));
-        return user;
-    }
-    return null;
-}
-
-function logoutUser() {
-    localStorage.removeItem("user");
-}
-
-function isUserLoggedIn() {
-    return localStorage.getItem("user") !== null;
-}
-
-//Login Page
 document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.getElementById("loginForm");
 
     if (!loginForm) return;
 
+    const emailGroup = document.querySelector("#email").parentElement;
+    const passwordGroup = document.querySelector("#password").parentElement;
+    
+    if (!emailGroup.querySelector(".error-message")) {
+        const emailError = document.createElement("div");
+        emailError.className = "error-message";
+        emailGroup.appendChild(emailError);
+    }
+    
+    if (!passwordGroup.querySelector(".error-message")) {
+        const passwordError = document.createElement("div");
+        passwordError.className = "error-message";
+        passwordGroup.appendChild(passwordError);
+    }
+
+    function showLoginError(input, message) {
+        const error = input.parentElement.querySelector(".error-message");
+        if (error) {
+            error.textContent = message;
+            error.style.display = "block";
+            input.classList.add("error");
+        }
+    }
+
+    function clearLoginError(input) {
+        const error = input.parentElement.querySelector(".error-message");
+        if (error) {
+            error.textContent = "";
+            error.style.display = "none";
+            input.classList.remove("error");
+        }
+    }
+
+    function clearAllLoginErrors() {
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
+        clearLoginError(emailInput);
+        clearLoginError(passwordInput);
+    }
+
     loginForm.addEventListener("submit", (e) => {
         e.preventDefault();
+        clearAllLoginErrors();
 
         const email = document.getElementById("email").value.trim();
         const password = document.getElementById("password").value.trim();
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
 
-        // Auto-create user for demo (testing only)
-        if (!users.find(u => u.email === email)) {
-            createUser("Demo User", email, password);
+        let hasErrors = false;
+
+        if (!email) {
+            showLoginError(emailInput, "Email is required.");
+            hasErrors = true;
         }
 
-        const user = loginUser(email, password);
+        if (!password) {
+            showLoginError(passwordInput, "Password is required.");
+            hasErrors = true;
+        }
 
-        if (user) {
-            alert("Login successful!");
+        if (hasErrors) return;
 
-            const returnTo = new URLSearchParams(window.location.search).get("returnTo");
-            window.location.href = returnTo || "../index.html";
+        const existingMockUser = mockUsers.find(u => u.email === email);
+
+        if (!existingMockUser) {
+
+            showLoginError(emailInput, "Email not found. Redirecting to register...");
+            setTimeout(() => {
+                window.location.href = "register.html";
+            }, 2000);
+            return;
+        }
+
+        const loggedInUser = authenticateMockUser(email, password);
+
+        if (loggedInUser) {
+
+            localStorage.setItem("user", JSON.stringify(loggedInUser));
+
+            // Show success and redirect
+            const successMsg = document.createElement("div");
+            successMsg.className = "success-message__login";
+            successMsg.textContent = "Login successful! You will be redirected to the homepage.";
+            loginForm.appendChild(successMsg);
+
+            setTimeout(() => {
+                const returnTo = new URLSearchParams(window.location.search).get("returnTo");
+                window.location.href = returnTo || "../index.html";
+            }, 3000);
 
         } else {
-            alert("Invalid email or password.");
+            
+            showLoginError(passwordInput, "Incorrect password. Please try again.");
         }
     });
 });
@@ -102,8 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!email) return showError(emailInput, "Email is required."), false;
         if (!pattern.test(email)) return showError(emailInput, "Enter a valid email."), false;
 
-        if (users.some(u => u.email === email)) {
-            return showError(emailInput, "This email is already registered."), false;
+        if (mockUsers.some(u => u.email === email)) {
+            return showError(emailInput, "This email is already registered. Please login."), false;
         }
 
         return true;
@@ -159,18 +211,14 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Create user 
-        createUser(
-            nameInput.value.trim(),
-            emailInput.value.trim(),
-            passwordInput.value.trim()
-        );
-
-        alert("Registration successful! Redirecting...");
+        const successMsg = document.getElementsByClassName("success-message")[0];
+        successMsg.style.display = "block";
+        registerForm.appendChild(successMsg);
+        
         registerForm.reset();
 
         setTimeout(() => {
             window.location.href = "login.html";
-        }, 1200);
+        }, 3000);
     });
 });

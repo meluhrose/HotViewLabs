@@ -1,17 +1,16 @@
 // Add product to cart functionality
 function addProductToCart(product) {
   try {
-    // Get existing cart//
+
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     
-    // Check if product already exists in cart
     const existingItemIndex = cart.findIndex(item => item.id === product.id);
     
     if (existingItemIndex > -1) {
-      // Increase quantity if product already exists
+
       cart[existingItemIndex].quantity += 1;
     } else {
-      // Add new product to cart
+
       const hasDiscount = product.discountedPrice && product.discountedPrice < product.price;
       cart.push({
         id: product.id,
@@ -23,7 +22,6 @@ function addProductToCart(product) {
       });
     }
     
-    // Save updated cart to localStorage
     localStorage.setItem("cart", JSON.stringify(cart));
     
     alert(`${product.title} has been added to your cart!`);
@@ -79,7 +77,7 @@ async function fetchSingleProduct() {
         <div class="product-info__header">
           <h2>${product.title}</h2>
           <button class="share-btn">
-            <i class="fa-solid fa-arrow-up-from-bracket" style="color: #735149;"></i> <p>Share</p>
+            <i class="fa-solid fa-arrow-up-from-bracket" style="color: #735149;"></i>
           </button>
         </div>
         <p class="product-description">${product.description || "No description available."}</p>

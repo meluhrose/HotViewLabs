@@ -149,3 +149,28 @@ input:invalid:user-invalid {
     font-weight: 600;
     text-decoration: none;
 }
+
+/* Success message after Login */
+.success-message__login {
+    padding: 15px;
+    font-size: var(--font-body);
+    color: var(--color-secondary);
+}
+
+/* Success message after Registration */
+.success-message {
+    width: 532px;
+    max-width: 90%;
+    position: absolute;
+    left: 50%;
+    top: 300px;
+    display: none;
+    margin: 100px auto 200px auto;
+    padding: 20px;
+    background-color: #F2E0D0;
+    border: #401713 4px solid;
+    border-radius: 20px;
+    text-align: center;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
