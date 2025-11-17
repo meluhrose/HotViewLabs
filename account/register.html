@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/account.css">
     <link rel="stylesheet" href="../css/media.css">
+    <script src="../js/main.js" defer></script>
+    <script src="../js/auth.js" type="module" defer></script>
 </head>
 <body>
 <header>
@@ -44,25 +46,33 @@
         <h1>Register</h1>
         <form id="registerForm">
             <div class="register-form-group">
-                <label for="Name">Name</label>
+                <label for="name">Name</label>
                 <input type="text" id="name" name="name" required>
+                <div class="error-message"></div>
             </div>
             <div class="register-form-group">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>
+                <div class="error-message"></div>
             </div>
             <div class="register-form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
+                <div class="error-message"></div>
             </div>
             <div class="register-form-group">
                 <label for="confirmPassword">Confirm Password</label>
                 <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <div class="error-message"></div>
             </div>
             <button type="submit" class="register-btn cta">Submit</button>
         </form>
 
         <p class="register-link">Already a member? <a href="login.html" style="font-weight: 600;">LOGIN</a></p>
+        </div>
+        <div class="success-message">
+            <img src="../assets/success-logo-icon.png" alt="success logo icon">
+            <p>Registration completed!</p><p>Redirecting to login...</p>
         </div>
     </main>
 </body>
@@ -74,6 +84,4 @@
         <li><a href="#">Privacy Policy</a></li>
     </ul>
 </footer>
-
-<script src="../js/main.js"></script>
 </html>

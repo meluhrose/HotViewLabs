@@ -82,7 +82,7 @@ input:focus {
 }
 
 .error-message {
-    color: #C53122;
+    color: var(--color-error);
     font-size: 14px;
     margin-top: 5px;
     font-weight: 500;
@@ -90,12 +90,12 @@ input:focus {
 
 .shipping-form-group input.error,
 .payment-form-group input.error {
-    border-color: #C53122;
+    border-color: var(--color-error);
 }
 
 .shipping-form-group input.error:focus,
 .payment-form-group input.error:focus {
-    border-color: #C53122;
+    border-color: var(--color-error);
 }
 
 .place-order-btn {

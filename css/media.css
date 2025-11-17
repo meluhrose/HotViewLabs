@@ -244,7 +244,6 @@
         display: none
     }
 
-
     /* Login Page */
   .login-container {
     margin: 60px auto;
@@ -266,7 +265,7 @@
   }
 
   /*Forms */
-  .login-container, .register-container, .checkout-page {
+  .login-container, .register-container, .checkout-page, .success-message {
     width: 80%;
   }
 

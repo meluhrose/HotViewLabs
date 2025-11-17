@@ -8,7 +8,7 @@ async function fetchAllProducts() {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const result = await response.json();
-        console.log("All products fetched:", result);
+
         return result.data || result;
     } catch (error) {
         console.error("Error fetching all products:", error);

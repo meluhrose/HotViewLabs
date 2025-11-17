@@ -91,5 +91,6 @@
     rgba(191, 160, 149, 0.8) calc(var(--rating-percent, 0%))
   );
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
