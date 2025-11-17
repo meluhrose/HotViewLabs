@@ -1,9 +1,34 @@
 //Login Page using mock users
 import { mockUsers } from "./mock.js";
 
-function authenticateMockUser(email, password) {
-    const user = mockUsers.find(u => u.email === email && u.password === password);
-    return user || null;
+function getRegisteredUsers() {
+    const stored = localStorage.getItem("registeredUsers");
+    return stored ? JSON.parse(stored) : [];
+}
+
+function saveRegisteredUser(userData) {
+    const registeredUsers = getRegisteredUsers();
+    // Generate an ID for the new user
+    const newUser = {
+        id: Date.now(), 
+        ...userData
+    };
+    registeredUsers.push(newUser);
+    localStorage.setItem("registeredUsers", JSON.stringify(registeredUsers));
+    return newUser;
+}
+
+function authenticateUser(email, password) {
+
+    const registeredUsers = getRegisteredUsers();
+    return registeredUsers.find(u => u.email === email && u.password === password) || null;
+    
+}
+
+function getAllUsers() {
+    // Combine mock users and registered users for email checking
+    const registeredUsers = getRegisteredUsers();
+    return [...mockUsers, ...registeredUsers];
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -74,10 +99,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (hasErrors) return;
 
-        const existingMockUser = mockUsers.find(u => u.email === email);
+        // Check if user exists in either mock users or registered users
+        const allUsers = getAllUsers();
+        const existingUser = allUsers.find(u => u.email === email);
 
-        if (!existingMockUser) {
-
+        if (!existingUser) {
             showLoginError(emailInput, "Email not found. Redirecting to register...");
             setTimeout(() => {
                 window.location.href = "register.html";
@@ -85,17 +111,18 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        const loggedInUser = authenticateMockUser(email, password);
+        const loggedInUser = authenticateUser(email, password);
 
         if (loggedInUser) {
 
             localStorage.setItem("user", JSON.stringify(loggedInUser));
 
-            // Show success and redirect
+            if (!document.querySelector(".success-message__login")) {
             const successMsg = document.createElement("div");
             successMsg.className = "success-message__login";
             successMsg.textContent = "Login successful! You will be redirected to the homepage.";
             loginForm.appendChild(successMsg);
+            }
 
             setTimeout(() => {
                 const returnTo = new URLSearchParams(window.location.search).get("returnTo");
@@ -103,7 +130,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 3000);
 
         } else {
-            
             showLoginError(passwordInput, "Incorrect password. Please try again.");
         }
     });
@@ -154,7 +180,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!email) return showError(emailInput, "Email is required."), false;
         if (!pattern.test(email)) return showError(emailInput, "Enter a valid email."), false;
 
-        if (mockUsers.some(u => u.email === email)) {
+        // Check if email already exists in mock.js
+        const allUsers = getAllUsers();
+        if (allUsers.some(u => u.email === email)) {
             return showError(emailInput, "This email is already registered. Please login."), false;
         }
 
@@ -199,9 +227,9 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
 
         const valid =
-            validateName() &
-            validateEmail() &
-            validatePassword() &
+            validateName() &&
+            validateEmail() &&
+            validatePassword() &&
             validateConfirmPassword();
 
         if (!valid) {
@@ -211,10 +239,19 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        // Save the new user data
+        const newUserData = {
+            name: nameInput.value.trim(),
+            email: emailInput.value.trim(),
+            password: passwordInput.value
+        };
+        
+        const savedUser = saveRegisteredUser(newUserData);
+        
+        // Show success message
         const successMsg = document.getElementsByClassName("success-message")[0];
         successMsg.style.display = "block";
         registerForm.appendChild(successMsg);
-        
         registerForm.reset();
 
         setTimeout(() => {
