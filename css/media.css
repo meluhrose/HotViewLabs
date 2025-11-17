@@ -119,10 +119,16 @@
     }
 
     /* Carousel */
-    .carousel-content p {
+    .carousel-slide p {
         font-size: 24px;
         text-align: center;
     }
+
+    .carousel-content-slide-2  {
+        display: flex;
+        justify-content: center;
+    }
+  
 
     /* Product Page */
     .customer-review-container {
