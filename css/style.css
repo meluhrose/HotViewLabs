@@ -290,49 +290,16 @@ footer ul li a:hover {
     color: #BFA095;
 }
 
-.carousel-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: var(--color-background);
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 3;
-    transition: background-color 0.5s ease;
-}
-
-.carousel-nav:hover {
-    background-color: var(--color-border);
-}
-
-.carousel-nav.prev {
-    left: 20px;
-}
-
-.carousel-nav.next {
-    right: 20px;
-}
-
-
 .carousel-nav__prev {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: var(--color-background);
-    border: none;
+    background-color: transparent;
+    border: 4px solid #F2E0D0;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     z-index: 3;
     transition: background-color 0.5s ease;
     left: 20px;
@@ -342,41 +309,28 @@ footer ul li a:hover {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: var(--color-background);
-    border: none;
+    background-color: transparent;
+    border: 4px solid #F2E0D0;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     z-index: 3;
     transition: background-color 0.5s ease;
     right: 20px;
 }
 
-.carousel-nav__prev:hover,
-.carousel-nav__next:hover {
-    background-color: #401713;
-}
-
 .carousel-nav__prev::before,
 .carousel-nav__next::before {
-    content: '';
-    width: 0;
-    height: 0;
-    border-style: solid;
+    font-weight: 900;
+    font-size: 24px;
+    color: #F2E0D0;
 }
 
-.carousel-nav__prev::before {
-    border-width: 8px 12px 8px 0;
-    border-color: transparent #0C0C20 transparent transparent;
-}
-
-.carousel-nav__next::before {
-    border-width: 8px 0 8px 12px;
-    border-color: transparent transparent transparent #0C0C20;
+.carousel-nav__prev:hover,
+.carousel-nav__next:hover {
+    background-color: #A65E4E;
+    border: 4px solid #A65E4E;
 }
 
 .carousel-indicators {
@@ -393,7 +347,7 @@ footer ul li a:hover {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(242, 224, 208, 0.5);
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
