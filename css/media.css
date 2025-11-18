@@ -125,10 +125,30 @@
     }
 
     .carousel-content-slide-2  {
-        display: flex;
-        justify-content: center;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
-  
+
+
+    .carousel-image_text-2 {
+        position: static;
+        transform: none;
+        font-size: 48px;
+        margin-top: 20px;
+    }
+
+    .carousel-content-slide-2-button {
+        position: static;
+        transform: none;
+        margin-top: 20px;
+    }
+    
+    .carousel-nav__next,
+    .carousel-nav__prev {
+        display: none;
+    }
 
     /* Product Page */
     .customer-review-container {
@@ -157,7 +177,9 @@
     .success-container h2 {
         font-size: 16px;
     }
+
 }
+
 
 @media (max-width: 600px) {
     /* Product Grid */
