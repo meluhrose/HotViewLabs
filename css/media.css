@@ -76,6 +76,10 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .product-card img {
+    max-width: 350px;
+    }
+
     /*Product Page */
       .product-detail-section {
         flex-direction: column;

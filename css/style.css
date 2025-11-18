@@ -383,7 +383,7 @@ footer ul li a:hover {
 }
 
 .product-card img {
-    max-width: 275px;
+    width: 350px;
     height: 352px;
     object-fit: cover;
     background-color: var(--color-white);
