@@ -117,7 +117,7 @@ function updateActiveIndicator() {
 }
 
 document.addEventListener("click", (e) => {
-    if (!e.target.classList.contains("shop-now")) return;
+    if (!e.target.classList.contains("shop-now-btn")) return;
 
     e.preventDefault();
 
