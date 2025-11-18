@@ -19,11 +19,11 @@ async function singleCarouselProduct() {
         const res = await fetch("https://v2.api.noroff.dev/online-shop");
         const { data } = await res.json();
 
-        //Specific products for carousel
+        //Specific products for carousel slides 
         const selectedProducts = [
             data[6],
             data[22],
-            data[1]
+            data[2]
         ];
 
         const allSlides = document.querySelectorAll(".carousel-slide");
