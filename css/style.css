@@ -373,7 +373,7 @@ footer ul li a:hover {
     max-width: 420px;
     height: auto;
     transition: transform 0.3s ease, box-shadow 0.1s ease;
-    padding-bottom: 1rem;
+
 }
 
 .product-card:hover {
@@ -388,7 +388,13 @@ footer ul li a:hover {
     object-fit: cover;
     background-color: var(--color-white);
     display: block;
-    margin: 10px auto 0;
+    
+    box-sizing: border-box;
+}
+
+.product-info {
+    padding: 32px 35px 61px 35px;
+    width: 100%;
     box-sizing: border-box;
 }
 
@@ -405,6 +411,7 @@ footer ul li a:hover {
     font-weight: 400;
     text-transform: uppercase;
     text-decoration: none;
+    line-height: 1.1;
 }
 
 
@@ -415,7 +422,7 @@ footer ul li a:hover {
 }
 
 .product-card_price {
-    margin-bottom: 2rem;
+    margin-top: -12px;
 }
 
 /* Loading styles */

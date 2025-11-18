@@ -161,7 +161,13 @@
     width: 40px;
     height: 40px;
     font-size: 12px;
-}
+    }
+
+    /* Featured Products */
+    .featured-products h3,
+    .featured-products p {
+        font-size: var(--font-size-small);
+    }
 
     /* Product Page */
     .customer-review-container {
