@@ -19,14 +19,19 @@ async function singleCarouselProduct() {
         const res = await fetch("https://v2.api.noroff.dev/online-shop");
         const { data } = await res.json();
 
-        const latest = data.slice(0, 3);
+        //Specific products for carousel
+        const selectedProducts = [
+            data[6],
+            data[22],
+            data[1]
+        ];
 
         const allSlides = document.querySelectorAll(".carousel-slide");
 
         allSlides.forEach((slide, slideIndex) => {
-            const productIndex = (slideIndex - 1 + latest.length) % latest.length;
+            const productIndex = (slideIndex - 1 + selectedProducts.length) % selectedProducts.length;
 
-            slide.dataset.productId = latest[productIndex].id;
+            slide.dataset.productId = selectedProducts[productIndex].id;
         });
     } catch (error) {
         console.error("Error loading carousel products:", error);
