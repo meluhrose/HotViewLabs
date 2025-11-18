@@ -259,7 +259,7 @@ footer ul li a:hover {
     text-transform: uppercase;
 }
 
-.shop-now {
+.shop-now-btn {
     background-color: var(--color-background);
     color: var(--color-text);
     border: var(--border-width-thin) solid var(--color-border);
@@ -275,7 +275,7 @@ footer ul li a:hover {
     transition: background-color 0.3s ease;
 }
 
-.shop-now:hover {
+.shop-now-btn:hover {
     background-color: #401713;
     color: #BFA095;
 }
