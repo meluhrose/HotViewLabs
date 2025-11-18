@@ -145,10 +145,12 @@
         margin-top: 20px;
     }
     
-    .carousel-nav__next,
-    .carousel-nav__prev {
-        display: none;
-    }
+    .carousel-nav__prev,
+    .carousel-nav__next {
+    width: 40px;
+    height: 40px;
+    font-size: 12px;
+}
 
     /* Product Page */
     .customer-review-container {
