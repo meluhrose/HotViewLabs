@@ -58,7 +58,7 @@ async function loadFeaturedProducts() {
                          <h3>${product.title || 'Product Name'}</h3>
                     <p class="product-card_rating">${product.rating || 'N/A'}<i class="fa-solid fa-star" style="color: #735149;"></i></p>
                     </div>
-                    <p class="product-price">$${product.price || 'N/A'}</p>
+                    <p class="product-card_price">$${product.price || 'N/A'}</p>
                 </div>
                 </a>
             `).join('');
