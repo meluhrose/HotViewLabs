@@ -12,6 +12,7 @@
     <script src="https://kit.fontawesome.com/3f13ab78cf.js" crossorigin="anonymous"></script>
     <script src="js/main.js" defer></script>
     <script src="js/api.js" defer></script>
+    <script src="js/carousel.js" defer></script>
 </head>
 <body>
 <header>
@@ -48,31 +49,31 @@
     <section aria-label="carousel of the latest products" class="carousel">
         <div class="carousel-container">
             <div class="carousel-slide">
-                <img src="" alt="Carousel Image 1">
-                <div class="carousel-content">
+                <img src="assets/carousel-image-1.jpg" alt="Carousel Image 1" class="carousel-image-1">
+                <div class="carousel-content-slide-1">
                     <p class="carousel-image_text-1">Elevate Your Hair Game</p>
-                    <a href="product.html"><button class="shop-now cta">Shop Now</button></a>
+                    <button class="shop-now-btn cta">Shop Now</button>
                 </div>
             </div>
             <div class="carousel-slide">
-                <img src="" alt="Carousel Image 2">
-                <div class="carousel-content">
-                    <p class="carousel-image_text-2">New Arrivals</p>
-                    <a href="product.html"><button class="shop-now cta">Shop Now</button></a>
+                <img src="assets/carousel-image-2.jpg" alt="Carousel Image 2">
+                <div class="carousel-content-slide-2">
+                    <p class="carousel-image_text-2">New<br>Arrivals</p>
+                    <button class="carousel-content-slide-2-button shop-now-btn cta">Shop Now</button>
                 </div>
             </div>
             <div class="carousel-slide">
-                <img src="" alt="Carousel Image 3">
-                <div class="carousel-content">
+                <img src="assets/carousel-image-3.jpg" alt="Carousel Image 3">
+                <div class="carousel-content-slide-3">
                     <p class="carousel-image_text-3">Latest In Tech</p>
-                    <a href="product.html"><button class="shop-now cta">Shop Now</button></a>
+                    <button class="shop-now-btn cta">Shop Now</button>
                 </div>
             </div>
         </div>
         
         <!-- Navigation buttons -->
-        <button class="carousel-nav__prev" aria-label="Previous slide"></button>
-        <button class="carousel-nav__next" aria-label="Next slide"></button>
+        <button class="carousel-nav__prev fa-solid fa-arrow-left" aria-label="Previous slide"></button>
+        <button class="carousel-nav__next fa-solid fa-arrow-right" aria-label="Next slide"></button>
         
         <!-- Indicators -->
         <div class="carousel-indicators">

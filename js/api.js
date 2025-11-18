@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", () => {
 const API_URL = "https://v2.api.noroff.dev/online-shop";
 
 // Fetch all products from API
@@ -73,55 +74,7 @@ async function loadFeaturedProducts() {
     }
 }
 
-// Load latest products for carousel
-async function loadCarouselProducts() {
-    try {
-        const products = await fetchAllProducts();
-        
-        if (products && products.length >= 3) {
-            const carouselProducts = products.slice(0, 3);
-            replaceCarouselContent(carouselProducts);
-        }
-    } catch (error) {
-        console.error("Error loading carousel products:", error);
-    }
-}
+// Call the function to load featured products when the page loads
+loadFeaturedProducts();
 
-
-// Replace carousel content with dynamic product data
-function replaceCarouselContent(products) {
-    const carouselContainer = document.querySelector(".carousel-container");
-    if (!carouselContainer) return;
-
-    const carouselTexts = [
-        "Elevate Your Hair Game",
-        "New Arrivals", 
-        "Latest In Tech"
-    ];
-
-    // Create new carousel slides with product data
-    const newCarouselHTML = products.map((product, index) => `
-        <div class="carousel-slide">
-            <img src="${product.image?.url || product.image || `assets/carousel-image-${index + 1}.jpg`}" 
-                 alt="${product.image?.alt || product.title || 'Product Image'}">
-            <div class="carousel-content">
-                <p class="carousel-image_text-${index + 1}">${carouselTexts[index] || 'Featured Product'}</p>
-                <a href="product.html?id=${product.id}">
-                    <button class="shop-now cta">Shop Now</button>
-                </a>
-            </div>
-        </div>
-    `).join('');
-
-    carouselContainer.innerHTML = newCarouselHTML;
-}
-
-
-document.addEventListener("DOMContentLoaded", () => {
-    if (window.location.pathname.includes("product.html")) {
-        fetchSingleProduct();
-    } else if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
-        loadFeaturedProducts();
-        loadCarouselProducts();
-    }
 });

@@ -1,3 +1,6 @@
+// API URL constant
+const API_URL = "https://v2.api.noroff.dev/online-shop";
+
 // Add product to cart functionality
 function addProductToCart(product) {
   try {
@@ -119,6 +122,7 @@ async function fetchSingleProduct() {
         }
       } else if (navigator.clipboard) {
         try {
+          await navigator.clipboard.writeText(shareURL);
           alert("Link copied to clipboard!");
         } catch (error) {
           console.error("Error copying to clipboard:", error);
@@ -173,3 +177,7 @@ async function fetchSingleProduct() {
     console.error("Fetch error:", error);
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetchSingleProduct();
+});
