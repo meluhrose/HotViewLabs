@@ -100,7 +100,7 @@
     .cart-item-header,
     .cart-item-card {
         grid-template-columns: 250px 220px 200px 150px 24px;
-        gap: 15px;
+        gap: 0px;
     }
 
     .cart-item-header {
@@ -217,7 +217,6 @@
     .cart-item-header,
     .cart-item-card {
         grid-template-columns: 180px 130px 150px 100px 24px;
-        gap: 10px;
     }
 
     .item-details {
@@ -287,7 +286,6 @@
     .cart-item-header,
     .cart-item-card {
         grid-template-columns: 2fr 1.2fr 1.5fr 1fr auto;
-        gap: 8px;
         min-width: 450px;
     }
 
@@ -376,7 +374,6 @@
     .cart-item-header,
     .cart-item-card {
         grid-template-columns: 2fr 1.2fr 1.5fr 1fr auto;
-        gap: 5px;
         min-width: 380px;
     }
 
