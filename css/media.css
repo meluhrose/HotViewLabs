@@ -99,7 +99,7 @@
 
     .cart-item-header,
     .cart-item-card {
-        grid-template-columns: 250px 220px 200px 150px 24px;
+        grid-template-columns: 250px 220px 200px 100px 12px;
         gap: 0px;
     }
 
@@ -216,7 +216,7 @@
 
     .cart-item-header,
     .cart-item-card {
-        grid-template-columns: 180px 130px 150px 100px 24px;
+        grid-template-columns: 180px 130px 150px 80px 12px;
     }
 
     .item-details {
@@ -231,6 +231,14 @@
     .cart-item img {
         width: 60px;
         height: 60px;
+    }
+    
+    .item-price .original-price {
+        font-size: 14px;
+    }
+
+    .item-price .discounted-price {
+        font-size: 14px;
     }
 
     .quantity-btn {
@@ -299,12 +307,20 @@
     }
 
     .item-details p {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .cart-item img {
         width: 50px;
         height: 50px;
+    }
+
+    .item-price .original-price {
+        font-size: 14px;
+    }
+
+    .item-price .discounted-price {
+        font-size: 14px;
     }
 
     .quantity-btn {
@@ -321,7 +337,7 @@
 
     .item-total,
     .item-price {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .remove-item-btn {
@@ -399,6 +415,18 @@
     .cart-item img {
         width: 45px;
         height: 45px;
+    }
+
+    .item-price {
+        font-size: 10px;
+    }
+
+    .item-price .original-price {
+        font-size: 9px;
+    }
+
+    .item-price .discounted-price {
+        font-size: 10px;
     }
 
     .quantity-btn {
