@@ -69,6 +69,7 @@ nav ul li a {
 .cta {
   display: inline-block;
   background-color: var(--color-background);
+  font-family: var(--font-body);
   font-size: 20px;
   text-align: center;
   color: #401713;

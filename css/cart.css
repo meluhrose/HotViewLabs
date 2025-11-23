@@ -45,14 +45,14 @@
     padding: 20px 0;
 }
 
-
 .cart-item {
     display: flex;
     flex-direction: column;
 }
 
 .cart-item img {
-    width: 80px;
+    max-width: 80px;
+    width: 100%;
     height: 80px;
     object-fit: cover;
 }
