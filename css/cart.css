@@ -15,14 +15,13 @@
 
 .cart-item-header {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 300px 300px 275px 200px 24px;
     align-items: center;
     gap: 20px;
-    padding: 20px 0;
-    font-size: 24px;
+    padding: 20px 0 10px 0;
+    font-size: var(--font-size-h2);
     font-weight: 700;
     text-transform: uppercase;
-    padding-bottom: 10px;
     margin-bottom: 15px;
 }
 
@@ -35,20 +34,17 @@
 
 .cart-item-header li {
     list-style: none;
-}
-
-.cart-item-header li:first-child {
-    text-align: left;
+    text-align: center;
 }
 
 .cart-item-card {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr auto;
+    grid-template-columns: 300px 300px 275px 200px 24px;
     align-items: center;
-    justify-content: space-evenly;
-    gap: 50px;
+    gap: 20px;
     padding: 20px 0;
 }
+
 
 .cart-item {
     display: flex;
@@ -61,39 +57,35 @@
     object-fit: cover;
 }
 
-
 .item-details {
     display: flex;
     align-items: center;
-    gap: 45px;
+    gap: 15px;
+    padding-right: 20px;
 }
 
-.cart-item-card .item-price,
-.cart-item-card .item-total {
+.item-price {
     text-align: center;
-}
-
-.cart-item .item-price,
-.cart-item .item-total {
-    text-align: center;
+    justify-self: center;
 }
 
 /* Discounted price styling in cart */
 .item-price .original-price {
     text-decoration: line-through;
     color: #0C0C20;
-    font-size: 14px;
+    font-size: var(--font-size-body);
     display: block;
 }
 
 .item-price .discounted-price {
     color: #C53122;
     font-weight: 700;
-    font-size: 16px;
+    font-size: var(--font-size-body);
     display: block;
 }
 
-.remove-item-btn {
+.item-total {
+    text-align: center;
     justify-self: center;
 }
 
@@ -102,6 +94,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    justify-self: center;
     gap: 10px;
 }
 
@@ -149,6 +142,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    justify-self: end;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
