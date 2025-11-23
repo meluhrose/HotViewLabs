@@ -232,7 +232,7 @@
         width: 60px;
         height: 60px;
     }
-    
+
     .item-price .original-price {
         font-size: 14px;
     }
@@ -293,12 +293,12 @@
 
     .cart-item-header,
     .cart-item-card {
-        grid-template-columns: 2fr 1.2fr 1.5fr 1fr auto;
+        grid-template-columns: 120px 130px 150px 80px 12px;
         min-width: 450px;
     }
 
     .cart-item-header {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .item-details {
@@ -389,7 +389,7 @@
 
     .cart-item-header,
     .cart-item-card {
-        grid-template-columns: 2fr 1.2fr 1.5fr 1fr auto;
+        grid-template-columns: 100px 110px 110px 60px 12px;
         min-width: 380px;
     }
 
@@ -403,12 +403,12 @@
     }
 
     .item-details p {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .item-total-amount,
     .item-price {
-        font-size: 12px;
+        font-size: 14px;
     }
 
 
@@ -418,15 +418,15 @@
     }
 
     .item-price {
-        font-size: 10px;
+        font-size: 14px;
     }
 
     .item-price .original-price {
-        font-size: 9px;
+        font-size: 14px;
     }
 
     .item-price .discounted-price {
-        font-size: 10px;
+        font-size: 14px;
     }
 
     .quantity-btn {
@@ -443,7 +443,7 @@
 
     .item-total,
     .item-price {
-        font-size: 11px;
+        font-size: 14px;
     }
 
     .remove-item-btn {
