@@ -78,7 +78,7 @@ nav ul li a {
   letter-spacing: normal;
   white-space: nowrap;
   border: var(--border-width-thin) solid #401713;
-  border-radius: 8px;
+  border-radius: 15px;
   padding: 1em 2rem;
   max-height: 75px;
   width: 100%;
