@@ -43,8 +43,7 @@ function updateCartDisplay(){
                 <input type="number" class="quantity-input" value="${item.quantity}" min="1">
                 <button class="quantity-btn plus" aria-label="Increase quantity">+</button>
             </div>
-            <div class="item-total"><span class="item-total-amount">${(item.price * item.quantity).toFixed(2)}</span></div>
-            <button class="remove-item-btn">x</button>
+            <div class="item-total"><span class="item-total-amount">${(item.price * item.quantity).toFixed(2)}</span><button class="remove-item-btn">x</button></div>
         `;
         cartContainer.appendChild(itemElement);
 
