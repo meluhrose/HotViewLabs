@@ -27,23 +27,41 @@ function addProductToCart(product) {
     
     localStorage.setItem("cart", JSON.stringify(cart));
     
-    alert(`${product.title} has been added to your cart!`);
+    addedToCartNotification(product.title);
   } catch (error) {
     console.error("Error adding product to cart:", error);
-    alert("Failed to add product to cart. Please try again.");
+    addedToCartNotification("Failed to add product to cart", true);
   }
+}
+
+//Alert notification for adding item to cart
+function addedToCartNotification(productTitle, isError = false) {
+  const notification = document.createElement("div");
+  notification.className = "cart-notification";
+  notification.innerHTML = `
+    <span class="cart-notification-text">${isError ? productTitle : `${productTitle} added to cart!`}</span>
+  `;
+  
+  document.body.appendChild(notification);
+  
+  setTimeout(() => notification.classList.add("show"), 10);
+  
+  setTimeout(() => {
+    notification.remove();
+  }, 3000);
 }
 
 // Display star ratings based on customer reviews//
 function displayStarRatings() {
-  const starElements = document.querySelectorAll('.stars[data-rating]');
+  const starElements = document.querySelectorAll(".stars[data-rating]");
   
   starElements.forEach(starElement => {
-    const rating = parseFloat(starElement.getAttribute('data-rating'));
+    const rating = parseFloat(starElement.getAttribute("data-rating"));
     const ratingPercent = (rating / 5) * 100;
-    starElement.style.setProperty('--rating-percent', `${ratingPercent}%`);
+    starElement.style.setProperty("--rating-percent", `${ratingPercent}%`);
   });
 }
+
 
 function getProductIdFromUrl() {
   const params = new URLSearchParams(window.location.search);
