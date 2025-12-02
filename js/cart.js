@@ -7,12 +7,19 @@ const cartContainerSummary = document.getElementById("checkout-summary-container
 function updateCartDisplay(){
     cartContainer.innerHTML = "";
 
+    const cartHeader = document.getElementsByClassName("cart-item-header");
+    const subtotalContainer = document.getElementsByClassName("subtotal-container");
     const checkoutBtn = document.querySelector(".checkout-btn");
 
     if (cart.length === 0) {
         cartContainer.innerHTML = "<p>Your cart is currently empty.</p><p>Start adding products to your cart!</p>";
-        
         if (checkoutBtn) checkoutBtn.style.display = "none";
+        if (cartHeader.length > 0) {
+            Array.from(cartHeader).forEach(header => header.style.display = "none");
+        }
+        if (subtotalContainer.length > 0) {
+            Array.from(subtotalContainer).forEach(container => container.style.display = "none");
+        }
 
         updateSubtotal();
         return;
