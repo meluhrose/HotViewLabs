@@ -20,9 +20,8 @@ function saveRegisteredUser(userData) {
 
 function authenticateUser(email, password) {
 
-    const registeredUsers = getRegisteredUsers();
-    return registeredUsers.find(u => u.email === email && u.password === password) || null;
-    
+    const allUsers = getAllUsers();
+    return allUsers.find(u => u.email === email && u.password === password) || null;
 }
 
 function getAllUsers() {
