@@ -1,5 +1,4 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
-console.log(cart);
 
 const cartContainer = document.getElementById("cart-item");
 const cartContainerSummary = document.getElementById("checkout-summary-container");

@@ -41,7 +41,6 @@ if (cart.length === 0) {
     const placeOrderBtn = document.querySelector(".place-order-btn");
     
     if (!placeOrderBtn) return;
-
     
     const validationPatterns = {
         firstName: {
@@ -85,6 +84,37 @@ if (cart.length === 0) {
             message: "CVV must be 3-4 digits"
         }
     };
+
+    // Payment Option Selection
+    const paymentOptions = document.querySelectorAll('input[name="payment"]');
+    const cardFields = document.getElementById("credit-card-fields");
+    const klarnaSection = document.getElementById("klarna-section");
+    const vippsSection = document.getElementById("vipps-section");
+
+    function getSelectedPaymentMethod() {
+        const selected = document.querySelector('input[name="payment"]:checked');
+        return selected ? selected.value : "card";
+    }
+
+    paymentOptions.forEach(radio => {
+        radio.addEventListener("change", () => {
+            const method = radio.value;
+            
+            if (method === "card") {
+                cardFields.style.display = "block";
+                klarnaSection.style.display = "none";
+                vippsSection.style.display = "none";
+            } else if (method === "klarna") {
+                cardFields.style.display = "none";
+                klarnaSection.style.display = "block";
+                vippsSection.style.display = "none";
+            } else if (method === "vipps") {
+                cardFields.style.display = "none";
+                klarnaSection.style.display = "none";
+                vippsSection.style.display = "block";
+            }
+        });
+    });
 
     //Display error message
     function showError(input, message) {
@@ -131,7 +161,7 @@ if (cart.length === 0) {
             return false;
         }
 
-        if (fieldId === 'expiry') {
+        if (fieldId === "expiry") {
             const [month, year] = value.split('/').map(num => parseInt(num));
             const currentDate = new Date();
             const currentYear = currentDate.getFullYear() % 100;
@@ -151,9 +181,9 @@ if (cart.length === 0) {
     allFields.forEach(fieldId => {
         const input = document.getElementById(fieldId);
         if (input) {
-            input.addEventListener('blur', () => validateField(fieldId));
-            input.addEventListener('input', () => {
-                if (input.classList.contains('error')) {
+            input.addEventListener("blur", () => validateField(fieldId));
+            input.addEventListener("input", () => {
+                if (input.classList.contains("error")) {
                     setTimeout(() => validateField(fieldId), 500);
                 }
             });
@@ -161,25 +191,38 @@ if (cart.length === 0) {
     });
 
     //Format card number input 
-    const cardNumberInput = document.getElementById("card-number");
+    const cardNumberInput = document.getElementById("card-number")
+    
     if (cardNumberInput) {
-        cardNumberInput.addEventListener("input", (e) => {
-            let value = e.target.value.replace(/\s/g, "").replace(/[^0-9]/gi, "");
-            let formattedValue = value.match(/.{1,4}/g)?.join(" ") || value;
-            if (formattedValue.length > 19) formattedValue = formattedValue.substr(0, 19);
-            e.target.value = formattedValue;
+        cardNumberInput.addEventListener("input", function () {
+            
+            let value = this.value;
+            value = value.replace(/\s/g, ""); 
+            value = value.replace(/[^0-9]/g, ""); 
+            
+            let formatted = "";
+            for (let i = 0; i < value.length; i++) {
+                if (i > 0 && i % 4 === 0) {
+                    formatted += " ";
+                }
+                formatted += value[i]
+            }
+            
+            formatted = formatted.substring(0, 19);
+            this.value = formatted;
         });
     }
 
     //Format expiry date input
     const expiryInput = document.getElementById("expiry");
     if (expiryInput) {
-        expiryInput.addEventListener("input", (e) => {
-            let value = e.target.value.replace(/\D/g, "");
+        expiryInput.addEventListener("input", function () {
+
+            let value = this.value.replace(/\D/g, "");
             if (value.length >= 2) {
                 value = value.substring(0,2) + '/' + value.substring(2,4);
             }
-            e.target.value = value;
+            this.value = value;
         });
     }
 
@@ -187,27 +230,38 @@ if (cart.length === 0) {
     placeOrderBtn.addEventListener("click", (e) => {
         e.preventDefault();
         
+        const method = getSelectedPaymentMethod();
         let isValid = true;
 
-        const allFields = ["firstName", "lastName", "address", "postNumber", "city", "phoneNumber", "name-on-card", "card-number", "expiry", "cvv"];
-        
-        for (const field of allFields) {
-            if (!validateField(field)) {
+        const shippingFieldsIds = ["firstName", "lastName", "address", "postNumber", "city", "phoneNumber"];
+        const cardFieldsIds = ["name-on-card", "card-number", "expiry", "cvv"];
+
+        // Always validate shipping fields
+        for (const fieldId of shippingFieldsIds) {
+            if (!validateField(fieldId)) {
                 isValid = false;
             }
         }
 
+        // Validate card fields only for card payment method
+        if (method === "card") {
+            for (const fieldId of cardFieldsIds) {
+                if (!validateField(fieldId)) {
+                    isValid = false;
+                }
+            }
+        }
+
         if (!isValid) {
- 
-            const firstError = document.querySelector(".error");
-            if (firstError) {
-                firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                firstError.focus();
+            const firstErrorField = document.querySelector(".error");
+            if (firstErrorField) {
+                firstErrorField.scrollIntoView({ behavior: "smooth", block: "center" });
+                firstErrorField.focus();
             }
             return;
         }
-        
+
         localStorage.removeItem("cart");
-        window.location.href = "success.html";}
-    );
+        window.location.href = "success.html";
+    });
 });

@@ -83,8 +83,27 @@
                     </div>
                 </form>
             </section>
-            <section class="payment-form">
+            <section id="payment-method-container" class="payment-form">
                 <h1>Payment Information</h1>
+
+                <div id="payment-options" class="payment-options">
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="card" checked>
+                        <img src="assets/credit-card-icon.png" alt="Credit Card Icon">
+                    </label>
+
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="klarna">
+                        <img src="assets/klarna-icon.png" alt="Klarna Logo">
+                    </label>
+
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="vipps">
+                        <img src="assets/vipps-icon.png" alt="Vipps Logo">
+                    </label>
+                </div>
+
+                <div id="credit-card-fields">
                 <div class="payment-form-group">
                     <label for="name-on-card">Name on Card</label>
                     <input type="text" id="name-on-card" name="nameOnCard" placeholder="James Smith" required>
@@ -101,6 +120,14 @@
                         <label for="cvv">CVV</label>
                         <input type="text" id="cvv" name="cvv" placeholder="123" required>
                     </div>
+                    </div>
+
+                    <div id="klarna-section" class="select-payment">
+                        <p>You will be redirected to Klarna when you click Pay Now</p>
+                    </div>
+
+                    <div id="vipps-section" class="select-payment">
+                       <p>You will be redirected to Vipps when you click Pay Now</p></div>
                 <button type="button" class="place-order-btn cta">Pay Now</button>
             </section>
         </div>

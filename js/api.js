@@ -36,7 +36,6 @@ async function loadFeaturedProducts() {
     try {
         const productGrid = document.querySelector(".product-grid");
         if (!productGrid) {
-            console.log("Product grid not found on this page");
             return;
         }
 

@@ -33,6 +33,7 @@
     text-transform: uppercase;
     text-align: left;
 }
+
 .shipping-form .payment-form {
     display: flex;
     flex-direction: column;
@@ -109,6 +110,24 @@ input:focus {
 a {
     text-decoration: none;
     color: inherit;
+}
+
+.payment-options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.select-payment {
+    display: none;
 }
 
 /* Checkout Cart Styles */
