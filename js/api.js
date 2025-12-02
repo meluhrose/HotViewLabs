@@ -1,4 +1,3 @@
-document.addEventListener("DOMContentLoaded", () => {
 const API_URL = "https://v2.api.noroff.dev/online-shop";
 
 // Fetch all products from API
@@ -9,7 +8,6 @@ async function fetchAllProducts() {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const result = await response.json();
-
         return result.data || result;
     } catch (error) {
         console.error("Error fetching all products:", error);
@@ -17,7 +15,7 @@ async function fetchAllProducts() {
     }
 }
 
-// Fetch single product by ID (for product pages)
+// Get product ID from URL
 function getProductIdFromUrl() {
     const params = new URLSearchParams(window.location.search);
     return params.get("id");
@@ -45,20 +43,20 @@ async function loadFeaturedProducts() {
         const products = await fetchAllProducts();
         
         if (products && products.length > 0) {
-            // Take first 12 products as featured
+            // Display first 12 products as featured
             const featuredProducts = products.slice(0, 12);
             
             productGrid.innerHTML = featuredProducts.map(product => `
                 <a href="product.html?id=${product.id}" class="product-card">
-                <div class="product-info">
-                    <img src="${product.image?.url || product.image}" 
-                         alt="${product.image?.alt || product.title}">
-            <div class="product-header">
-                         <h3>${product.title || 'Product Name'}</h3>
-                    <p class="product-card_rating">${product.rating || 'N/A'}<i class="fa-solid fa-star" style="color: #735149;"></i></p>
+                    <div class="product-info">
+                        <img src="${product.image?.url || product.image}" 
+                             alt="${product.image?.alt || product.title}">
+                        <div class="product-header">
+                            <h3>${product.title || 'Product Name'}</h3>
+                            <p class="product-card_rating">${product.rating || 'N/A'}<i class="fa-solid fa-star" style="color: #735149;"></i></p>
+                        </div>
+                        <p class="product-card_price">$${product.price || 'N/A'}</p>
                     </div>
-                    <p class="product-card_price">$${product.price || 'N/A'}</p>
-                </div>
                 </a>
             `).join('');
         } else {
@@ -73,6 +71,7 @@ async function loadFeaturedProducts() {
     }
 }
 
-loadFeaturedProducts();
-
+// Initialize on page load
+document.addEventListener("DOMContentLoaded", () => {
+    loadFeaturedProducts();
 });
