@@ -1,10 +1,6 @@
-// API URL constant
-const API_URL = "https://v2.api.noroff.dev/online-shop";
-
 // Add product to cart functionality
 function addProductToCart(product) {
   try {
-
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     
     const existingItemIndex = cart.findIndex(item => item.id === product.id);
@@ -51,7 +47,7 @@ function addedToCartNotification(productTitle, isError = false) {
   }, 3000);
 }
 
-// Display star ratings based on customer reviews//
+// Display star ratings based on customer reviews
 function displayStarRatings() {
   const starElements = document.querySelectorAll(".stars[data-rating]");
   
@@ -62,23 +58,19 @@ function displayStarRatings() {
   });
 }
 
-
-function getProductIdFromUrl() {
-  const params = new URLSearchParams(window.location.search);
-  return params.get("id");
-}
-
+// Fetch single product by ID
 async function fetchSingleProduct() {
   try {
     const productContainer = document.querySelector(".product-detail-section");
-    const productId = getProductIdFromUrl();
+    const params = new URLSearchParams(window.location.search);
+    const productId = params.get("id");
 
     if (!productId) {
       productContainer.innerHTML = "<p>Product not found.</p>";
       return;
     }
 
-    const response = await fetch(`${API_URL}/${productId}`);
+    const response = await fetch(`https://v2.api.noroff.dev/online-shop/${productId}`);
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
     const result = await response.json();

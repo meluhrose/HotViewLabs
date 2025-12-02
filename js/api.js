@@ -21,14 +21,6 @@ function getProductIdFromUrl() {
     return params.get("id");
 }
 
-// Single product fetching is handled by product-page.js
-
-//async function fetchSingleProduct() {
-
-    //console.warn("fetchSingleProduct should be called from product-page.js");
-    //return null;
-//}
-
 // Load featured products for homepage
 async function loadFeaturedProducts() {
     try {
