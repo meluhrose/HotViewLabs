@@ -7,12 +7,19 @@ const cartContainerSummary = document.getElementById("checkout-summary-container
 function updateCartDisplay(){
     cartContainer.innerHTML = "";
 
+    const cartHeader = document.getElementsByClassName("cart-item-header");
+    const subtotalContainer = document.getElementsByClassName("subtotal-container");
     const checkoutBtn = document.querySelector(".checkout-btn");
 
     if (cart.length === 0) {
         cartContainer.innerHTML = "<p>Your cart is currently empty.</p><p>Start adding products to your cart!</p>";
-        
         if (checkoutBtn) checkoutBtn.style.display = "none";
+        if (cartHeader.length > 0) {
+            Array.from(cartHeader).forEach(header => header.style.display = "none");
+        }
+        if (subtotalContainer.length > 0) {
+            Array.from(subtotalContainer).forEach(container => container.style.display = "none");
+        }
 
         updateSubtotal();
         return;
@@ -45,9 +52,7 @@ function updateCartDisplay(){
             <div class="item-total"><span class="item-total-amount">${(item.price * item.quantity).toFixed(2)}</span><button class="remove-item-btn">x</button></div>
         `;
         cartContainer.appendChild(itemElement);
-
-
-
+        
     });
 
     if (checkoutBtn) checkoutBtn.style.display = "block";
@@ -88,6 +93,31 @@ cartContainer.addEventListener("click", function(event) {
                 updateCartDisplay();
             }
         }
+    }
+});
+
+//Quantity input amount
+cartContainer.addEventListener("input", function(event) {
+    if (event.target.classList.contains("quantity-input")) {
+
+        const input = event.target;
+        const cartItemElement = input.closest(".cart-item-card");
+
+        if (!cartItemElement) return;
+
+        const productTitle = cartItemElement.querySelector("p").textContent;
+        const productIndex = cart.findIndex(item => item.title === productTitle);
+        if (productIndex === -1) return;
+
+        let newQuantity = parseInt(input.value);
+
+        if (isNaN(newQuantity) || newQuantity < 1) {
+            newQuantity = 1;
+        }
+
+        cart[productIndex].quantity = newQuantity;
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartDisplay();
     }
 });
 
