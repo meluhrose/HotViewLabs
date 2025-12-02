@@ -73,7 +73,6 @@ async function loadFeaturedProducts() {
     }
 }
 
-// Call the function to load featured products when the page loads
 loadFeaturedProducts();
 
 });
