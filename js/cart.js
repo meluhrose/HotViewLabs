@@ -52,9 +52,7 @@ function updateCartDisplay(){
             <div class="item-total"><span class="item-total-amount">${(item.price * item.quantity).toFixed(2)}</span><button class="remove-item-btn">x</button></div>
         `;
         cartContainer.appendChild(itemElement);
-
-
-
+        
     });
 
     if (checkoutBtn) checkoutBtn.style.display = "block";
@@ -95,6 +93,31 @@ cartContainer.addEventListener("click", function(event) {
                 updateCartDisplay();
             }
         }
+    }
+});
+
+//Quantity input amount
+cartContainer.addEventListener("input", function(event) {
+    if (event.target.classList.contains("quantity-input")) {
+
+        const input = event.target;
+        const cartItemElement = input.closest(".cart-item-card");
+
+        if (!cartItemElement) return;
+
+        const productTitle = cartItemElement.querySelector("p").textContent;
+        const productIndex = cart.findIndex(item => item.title === productTitle);
+        if (productIndex === -1) return;
+
+        let newQuantity = parseInt(input.value);
+
+        if (isNaN(newQuantity) || newQuantity < 1) {
+            newQuantity = 1;
+        }
+
+        cart[productIndex].quantity = newQuantity;
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartDisplay();
     }
 });
 
