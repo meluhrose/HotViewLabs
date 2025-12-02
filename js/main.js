@@ -38,53 +38,65 @@ function updateLogInIcon() {
 
     if (!headerIcons) return;
 
-    if (user) {
-        // User is logged in - show logout icon
-        headerIcons.innerHTML = `
-            <button id="logout-btn" class="logout-btn" aria-label="Logout">
-                <img src="assets/log-out-user.png" alt="Logout icon">
-            </button>
-            <a href="cart.html"><img src="assets/shopping-bag.png" alt="Shopping Bag Icon"></a>
-        `;
+    //Direct path handling for account pages
+    let pathPrefix = "";
 
-        if (mobileIcons) {
-            mobileIcons.innerHTML = `
-                <button id="mobile-logout-btn" class="logout-btn" aria-label="Logout">
-                    <img src="assets/log-out-user.png" alt="Logout icon">
-                </button>
-                <a href="cart.html"><img src="assets/shopping-bag.png" alt="Shopping Bag Icon"></a>
-            `;
-        }
+if (window.location.pathname.indexOf("/account/") !== -1) {
+    pathPrefix = "../";
+}
 
-        // Add logout functionality
-        const logoutBtn = document.getElementById("logout-btn");
-        const mobileLogoutBtn = document.getElementById("mobile-logout-btn");
+if (user) {
+    headerIcons.textContent = "";
 
-        function handleLogout() {
-            localStorage.removeItem("user");
-            localStorage.removeItem("cart");
-            window.location.href = "index.html";
-        }
+    const logoutBtn = document.createElement("button");
+    logoutBtn.id = "logout-btn";
+    logoutBtn.className = "logout-btn";
 
-        if (logoutBtn) {
-            logoutBtn.addEventListener("click", handleLogout);
-        }
+    const logoutIcon = document.createElement("img");
+    logoutIcon.src = pathPrefix + "assets/log-out-user.png";
+    logoutIcon.alt = "Logout icon";
 
-        if (mobileLogoutBtn) {
-            mobileLogoutBtn.addEventListener("click", handleLogout);
-        }
-    } else {
-        // Show login icon when user is not logged in
-        headerIcons.innerHTML = `
-            <a href="account/login.html"><img src="assets/user.png" alt="User profile icon"></a>
-            <a href="cart.html"><img src="assets/shopping-bag.png" alt="Shopping Bag Icon"></a>
-        `;
+    logoutBtn.appendChild(logoutIcon);
 
-        if (mobileIcons) {
-            mobileIcons.innerHTML = `
-                <a href="account/login.html"><img src="assets/user.png" alt="User profile icon"></a>
-                <a href="cart.html"><img src="assets/shopping-bag.png" alt="Shopping Bag Icon"></a>
-            `;
-        }
+    const cartLink = document.createElement("a");
+    cartLink.href = pathPrefix + "cart.html";
+
+    const cartIcon = document.createElement("img");
+    cartIcon.src = pathPrefix + "assets/shopping-bag.png";
+    cartIcon.alt = "Shopping Bag Icon";
+
+    cartLink.appendChild(cartIcon);
+
+    headerIcons.appendChild(logoutBtn);
+    headerIcons.appendChild(cartLink);
+
+    // Add logout functionality
+    const mobileLogoutBtn = document.getElementById("mobile-logout-btn");
+
+    function handleLogout() {
+        localStorage.removeItem("user");
+        localStorage.removeItem("cart");
+        window.location.href = `${pathPrefix}index.html`;
     }
+
+    logoutBtn.addEventListener("click", handleLogout);
+
+    if (mobileLogoutBtn) {
+        mobileLogoutBtn.addEventListener("click", handleLogout);
+    }
+} else {
+    // Show login icon when user is not logged in
+    headerIcons.innerHTML = `
+        <a href="${pathPrefix}account/login.html"><img src="${pathPrefix}assets/user.png" alt="User profile icon"></a>
+        <a href="${pathPrefix}cart.html"><img src="${pathPrefix}assets/shopping-bag.png" alt="Shopping Bag Icon"></a>
+    `;
+
+    if (mobileIcons) {
+        mobileIcons.innerHTML = `
+            <a href="${pathPrefix}account/login.html"><img src="${pathPrefix}assets/user.png" alt="User profile icon"></a>
+            <a href="${pathPrefix}cart.html"><img src="${pathPrefix}assets/shopping-bag.png" alt="Shopping Bag Icon"></a>
+        `;
+    }
+}
+
 }
