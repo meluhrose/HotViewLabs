@@ -472,30 +472,29 @@
     }
 
     /* Login Page */
-  .login-container {
-    margin: 60px auto;
-    padding: 20px;
-  }
+    .login-container {
+        margin: 60px auto;
+        padding: 20px;
+    }
+    
+    .login-form-group label {
+        margin-left: 10%;
+    }
 
-  .login-form-group label {
-    margin-left: 10%;
-  }
+    .login-form-group input,
+    .login-btn {
+        width: 85%;
+    }
 
-  .login-form-group input,
-  .login-btn {
-    width: 85%;
-  }
+    /*Checkout Page */
+    .checkout-page {
+        margin: 15px;
+    }
 
-  /*Checkout Page */
-  .checkout-page {
-    margin: 15px;
-  }
-
-  /*Forms */
-  .login-container, .register-container, .checkout-page, .success-message {
-    width: 80%;
-  }
-
+    /*Forms */
+    .login-container, .register-container, .checkout-page, .success-message {
+        width: 80%;
+    }
 }
 
 @media (max-width: 412px) {

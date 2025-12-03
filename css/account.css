@@ -103,9 +103,9 @@ input:invalid:user-invalid {
 }
 
 .remember-me label {
-  color: var(--color-primary);
-  font-size: var(--font-size-body);
-  white-space: nowrap;
+    color: var(--color-primary);
+    font-size: var(--font-size-body);
+    white-space: nowrap;
 }
 
 .remember-me input[type="checkbox"] {
@@ -117,19 +117,18 @@ input:invalid:user-invalid {
 
 /* Login & Register Button */
 .login-btn, .register-btn {
-    padding: 0.8rem 2rem;
     width: 75%;
     padding: 12px;
+    margin-top: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-top: 10px;
 }
 
 /* Link */
 .forgot-password-link {
     display: block;
     width: 73%;
-    margin: 10px auto 25px auto;
+    margin: 10px auto 33px auto;
     text-align: right;
     font-size: var(--font-size-small);
 }
@@ -138,10 +137,6 @@ input:invalid:user-invalid {
     margin-top: 15px;
     font-size: var(--font-size-small);
     color: var(--color-primary);
-}
-
-.forgot-password-link {
-    margin-bottom: 33px;
 }
 
 .forgot-password-link a, .register-link a {
