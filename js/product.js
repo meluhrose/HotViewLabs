@@ -6,10 +6,8 @@ function addProductToCart(product) {
     const existingItemIndex = cart.findIndex(item => item.id === product.id);
     
     if (existingItemIndex > -1) {
-
       cart[existingItemIndex].quantity += 1;
     } else {
-
       const hasDiscount = product.discountedPrice && product.discountedPrice < product.price;
       cart.push({
         id: product.id,
@@ -116,7 +114,6 @@ async function fetchSingleProduct() {
 
     // Share button functionality
     const shareButton = productContainer.querySelector(".share-btn");
-    if (!shareButton) return;
     const shareURL = `${window.location.origin}/product.html?id=${product.id}`;
 
     shareButton.addEventListener("click", async () => {
@@ -140,9 +137,8 @@ async function fetchSingleProduct() {
       }
     });
 
-    //Add to cart button visible when logged in//
+    //Add to cart button visible when logged in
     const addToCartBtn = productContainer.querySelector(".add-to-cart-btn");
-
     const user = JSON.parse(localStorage.getItem("user"));
     if (!user) {
         if (addToCartBtn) {

@@ -72,6 +72,18 @@ if (user) {
     headerIcons.appendChild(logoutBtn);
     headerIcons.appendChild(cartLink);
 
+    // Logout icon for mobile
+    if (mobileIcons) {
+        mobileIcons.innerHTML = `
+            <button id="mobile-logout-btn" class="logout-btn" title="Logout">
+                <img src="${pathPrefix}assets/log-out-user.png" alt="Logout icon">
+            </button>
+            <a href="${pathPrefix}cart.html" title="Cart">
+                <img src="${pathPrefix}assets/shopping-bag.png" alt="Shopping Bag Icon">
+            </a>
+        `;
+    }
+
     // Add logout functionality
     const mobileLogoutBtn = document.getElementById("mobile-logout-btn");
 

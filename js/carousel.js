@@ -129,11 +129,9 @@ document.addEventListener("click", (e) => {
     }
 });
 
-// Initialize carousel
 showSlide(currentSlide);
 updateActiveIndicator();
 
-
 setInterval(() => {
     nextSlide();
-}, 5000);
+}, 4000);

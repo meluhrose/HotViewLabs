@@ -138,5 +138,3 @@ function updateSubtotal() {
 
     totalAmountElement.textContent = subtotal.toFixed(2);
 }
-
-updateSubtotal();

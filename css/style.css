@@ -426,6 +426,7 @@ footer ul li a:hover {
     display: flex;
     align-items: center;
     gap: 0.3rem;
+    white-space: nowrap;
 }
 
 .product-card_price {
