@@ -118,13 +118,11 @@ if (cart.length === 0) {
 
     //Display error message
     function showError(input, message) {
-
         const existingError = input.parentNode.querySelector(".error-message");
         if (existingError) {
             existingError.remove();
         }
 
-        
         input.classList.add("error");
 
         const errorDiv = document.createElement("div");
@@ -149,7 +147,6 @@ if (cart.length === 0) {
         const rule = validationPatterns[fieldId];
 
         clearError(input);
-
 
         if (!value) {
             showError(input, "Missing required field");
@@ -191,11 +188,10 @@ if (cart.length === 0) {
     });
 
     //Format card number input 
-    const cardNumberInput = document.getElementById("card-number")
+    const cardNumberInput = document.getElementById("card-number");
     
     if (cardNumberInput) {
         cardNumberInput.addEventListener("input", function () {
-            
             let value = this.value;
             value = value.replace(/\s/g, ""); 
             value = value.replace(/[^0-9]/g, ""); 
@@ -217,7 +213,6 @@ if (cart.length === 0) {
     const expiryInput = document.getElementById("expiry");
     if (expiryInput) {
         expiryInput.addEventListener("input", function () {
-
             let value = this.value.replace(/\D/g, "");
             if (value.length >= 2) {
                 value = value.substring(0,2) + '/' + value.substring(2,4);

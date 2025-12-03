@@ -1,19 +1,13 @@
-// API URL constant
-const API_URL = "https://v2.api.noroff.dev/online-shop";
-
 // Add product to cart functionality
 function addProductToCart(product) {
   try {
-
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     
     const existingItemIndex = cart.findIndex(item => item.id === product.id);
     
     if (existingItemIndex > -1) {
-
       cart[existingItemIndex].quantity += 1;
     } else {
-
       const hasDiscount = product.discountedPrice && product.discountedPrice < product.price;
       cart.push({
         id: product.id,
@@ -51,7 +45,7 @@ function addedToCartNotification(productTitle, isError = false) {
   }, 3000);
 }
 
-// Display star ratings based on customer reviews//
+// Display star ratings based on customer reviews
 function displayStarRatings() {
   const starElements = document.querySelectorAll(".stars[data-rating]");
   
@@ -62,23 +56,19 @@ function displayStarRatings() {
   });
 }
 
-
-function getProductIdFromUrl() {
-  const params = new URLSearchParams(window.location.search);
-  return params.get("id");
-}
-
+// Fetch single product by ID
 async function fetchSingleProduct() {
   try {
     const productContainer = document.querySelector(".product-detail-section");
-    const productId = getProductIdFromUrl();
+    const params = new URLSearchParams(window.location.search);
+    const productId = params.get("id");
 
     if (!productId) {
       productContainer.innerHTML = "<p>Product not found.</p>";
       return;
     }
 
-    const response = await fetch(`${API_URL}/${productId}`);
+    const response = await fetch(`https://v2.api.noroff.dev/online-shop/${productId}`);
     if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
     const result = await response.json();
@@ -124,7 +114,6 @@ async function fetchSingleProduct() {
 
     // Share button functionality
     const shareButton = productContainer.querySelector(".share-btn");
-    if (!shareButton) return;
     const shareURL = `${window.location.origin}/product.html?id=${product.id}`;
 
     shareButton.addEventListener("click", async () => {
@@ -148,9 +137,8 @@ async function fetchSingleProduct() {
       }
     });
 
-    //Add to cart button visible when logged in//
+    //Add to cart button visible when logged in
     const addToCartBtn = productContainer.querySelector(".add-to-cart-btn");
-
     const user = JSON.parse(localStorage.getItem("user"));
     if (!user) {
         if (addToCartBtn) {

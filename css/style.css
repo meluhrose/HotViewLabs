@@ -66,6 +66,12 @@ nav ul li a {
     margin-right: 81px;    
 }
 
+.logout-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
 .cta {
   display: inline-block;
   background-color: var(--color-background);
@@ -420,6 +426,7 @@ footer ul li a:hover {
     display: flex;
     align-items: center;
     gap: 0.3rem;
+    white-space: nowrap;
 }
 
 .product-card_price {

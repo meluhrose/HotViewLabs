@@ -35,22 +35,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!loginForm) return;
 
-    const emailGroup = document.querySelector("#email").parentElement;
-    const passwordGroup = document.querySelector("#password").parentElement;
-    
-    if (!emailGroup.querySelector(".error-message")) {
-        const emailError = document.createElement("div");
-        emailError.className = "error-message";
-        emailGroup.appendChild(emailError);
-    }
-    
-    if (!passwordGroup.querySelector(".error-message")) {
-        const passwordError = document.createElement("div");
-        passwordError.className = "error-message";
-        passwordGroup.appendChild(passwordError);
-    }
-
     function showLoginError(input, message) {
+        const errorContainer = input.parentElement.querySelector(".error-message");
+        if (!errorContainer) {
+            const newError = document.createElement("div");
+            newError.className = "error-message";
+            input.parentElement.appendChild(newError);
+        }
         const error = input.parentElement.querySelector(".error-message");
         if (error) {
             error.textContent = message;
@@ -89,6 +80,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!email) {
             showLoginError(emailInput, "Email is required.");
             hasErrors = true;
+        } else {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                showLoginError(emailInput, "Please enter a valid email address.");
+                hasErrors = true;
+            }
         }
 
         if (!password) {

@@ -1,7 +1,6 @@
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const cartContainer = document.getElementById("cart-item");
-const cartContainerSummary = document.getElementById("checkout-summary-container");
 
 
 function updateCartDisplay(){
@@ -139,5 +138,3 @@ function updateSubtotal() {
 
     totalAmountElement.textContent = subtotal.toFixed(2);
 }
-
-updateSubtotal();

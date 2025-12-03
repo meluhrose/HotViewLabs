@@ -117,6 +117,11 @@
         height: 70px;
     }
 
+    .cart-summary {
+        padding-right: 0;
+        align-items: center;
+    }
+
     /* Checkout Page */
     .checkout-page {
         grid-template-columns: 1fr;
@@ -256,11 +261,7 @@
         font-size: 1.2rem;
     }
 
-    .cart-summary {
-        padding-right: 0;
-        align-items: center;
-    }
-
+    
     /*Success Page */
     .success-container h1 {
         font-size: 32px;
@@ -342,12 +343,6 @@
 
     .remove-item-btn {
         font-size: 1rem;
-    }
-
-    .cart-summary {
-        align-items: center;
-        padding-bottom: 37px;
-        gap: 25px;
     }
     
     /* Checkout Page */
