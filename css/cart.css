@@ -6,7 +6,7 @@
     flex-direction: column;
     justify-content: flex-end;
     max-width: 1200px;
-    margin:  150px auto;
+    margin: 150px auto;
     padding: 56px 46px;
     background-color: var(--color-white);
     border: #401713 4px solid;
@@ -58,7 +58,7 @@
 .item-details {
     display: flex;
     align-items: center;
-    gap: 45px;;
+    gap: 45px;
 }
 
 .item-price {
@@ -166,4 +166,3 @@
     width: 100%;
     max-width: 300px;
 }
-
