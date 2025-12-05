@@ -279,6 +279,16 @@
 
 
 @media (max-width: 600px) {
+
+    /* Footer */
+    footer ul {
+        flex-direction: column;
+        gap: 5px;}
+
+    footer ul li a {
+        font-weight: 400;
+    }
+
     /* Product Grid */
     .featured-products h1 {
         font-size: var(--font-size-h2);
