@@ -79,7 +79,7 @@
 
 input:focus {
     outline: none;
-    border-color: #401713;
+    border-color: var(--color-border);
 }
 
 .error-message {
