@@ -56,7 +56,7 @@
 .two-column {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 81px;
+    gap: 70px;
     width: 195px;
     max-width: 100%;
 }
