@@ -45,7 +45,6 @@
 .shipping-form-group, .payment-form-group {
     display: flex;
     flex-direction: column;
-    gap: 10px;
 }
 
 .form-row {
@@ -59,6 +58,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+    width: 195px;
     max-width: 100%;
 }
 

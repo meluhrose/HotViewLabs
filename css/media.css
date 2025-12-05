@@ -145,6 +145,10 @@
         padding: 30px 20px;
         width: 95%;
     }
+
+    .two-column {
+        width: 100%;
+    }
 }
 
 
@@ -368,8 +372,9 @@
         text-align: center;
     }
 
-    .form-row.two-column {
+    .two-column {
         grid-template-columns: 1fr;
+        gap: 0;
     }
 
     .checkout-item {
