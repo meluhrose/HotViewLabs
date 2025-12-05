@@ -64,7 +64,7 @@ input:invalid:user-invalid {
     font-size: 14px;
     margin-top: 5px;
     text-align: left;
-    width: 70%;
+    width: 74%;
     display: none;
     font-weight: 500;
 }
@@ -96,7 +96,6 @@ input:invalid:user-invalid {
     width: 73%;
     gap: 8px;
     margin: 10px auto 0;
-    padding-bottom: 19px;
 }
 
 .remember-me label {
@@ -114,11 +113,19 @@ input:invalid:user-invalid {
 
 /* Login & Register Button */
 .login-btn, .register-btn {
-    width: 75%;
+    max-width: 392px;
+    width: 100%;
     padding: 12px;
-    margin-top: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
+}
+
+.login-btn {
+    margin-top: 19px;
+}
+
+.register-btn {
+    margin-top: 24px;
 }
 
 /* Link */
