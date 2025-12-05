@@ -137,6 +137,12 @@
   font-weight: 500;
 }
 
+.toast-share-success {
+  background-color: var(--color-primary);
+  color: white;
+
+}
+
 @keyframes slideIn {
   from {
     transform: translateX(400px);

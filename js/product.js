@@ -131,6 +131,7 @@ async function fetchSingleProduct() {
         try {
           await navigator.clipboard.writeText(shareURL);
           alert("Link copied to clipboard!");
+
         } catch (error) {
           console.error("Error copying to clipboard:", error);
         }
