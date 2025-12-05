@@ -137,6 +137,30 @@
   font-weight: 500;
 }
 
+/* Share notification styles */
+.share-notification {
+  position: fixed;
+  top: 400px;
+  right: 600px;
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+}
+
+.share-notification.show {
+  opacity: 1;
+}
+
+.share-notification-text {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Keyframe animations */
 @keyframes slideIn {
   from {
     transform: translateX(400px);

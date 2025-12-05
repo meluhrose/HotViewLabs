@@ -45,6 +45,23 @@ function addedToCartNotification(productTitle, isError = false) {
   }, 3000);
 }
 
+// Share notification
+function showShareNotification(message = "Link copied to clipboard!") {
+  const notification = document.createElement("div");
+  notification.className = "share-notification";
+  notification.innerHTML = `
+    <span class="share-notification-text">${message}</span>
+  `;
+  
+  document.body.appendChild(notification);
+  
+  setTimeout(() => notification.classList.add("show"), 10);
+  
+  setTimeout(() => {
+    notification.remove();
+  }, 3000);
+}
+
 // Display star ratings based on customer reviews
 function displayStarRatings() {
   const starElements = document.querySelectorAll(".stars[data-rating]");
@@ -130,9 +147,10 @@ async function fetchSingleProduct() {
       } else if (navigator.clipboard) {
         try {
           await navigator.clipboard.writeText(shareURL);
-          alert("Link copied to clipboard!");
+          showShareNotification();
         } catch (error) {
           console.error("Error copying to clipboard:", error);
+          showShareNotification("Failed to copy link");
         }
       }
     });

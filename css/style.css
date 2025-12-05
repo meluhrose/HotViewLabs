@@ -113,14 +113,13 @@ footer ul {
     margin: 2px;
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 25px;
 }
 
 footer ul li a {
     text-decoration: none;
     color: var(--color-text);
     font-weight: 600;
-    gap: 10px;
 }
 
 footer ul li a:hover {
