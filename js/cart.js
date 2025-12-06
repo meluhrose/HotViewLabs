@@ -30,10 +30,11 @@ function updateCartDisplay(){
         itemElement.classList.add("cart-item-card");
 
         const hasDiscount = item.originalPrice && item.originalPrice > item.price;
+        const imageUrl = item.image?.url || item.image || '';
         
         itemElement.innerHTML = `
             <div class="item-details" data-id="${item.id}">
-                <img src="${item.image.url}" alt="${item.title}">
+                <img src="${imageUrl}" alt="${item.title}">
                 <p>${item.title}</p>
             </div>
             <div class="item-price">
