@@ -63,7 +63,7 @@ if (user) {
     cartLink.href = pathPrefix + "cart.html";
 
     const cartIcon = document.createElement("img");
-    cartIcon.src = pathPrefix + "assets/shopping-bag.png";
+    cartIcon.src = pathPrefix + "assets/Shopping-bag.png";
     cartIcon.alt = "Shopping Bag Icon";
     cartIcon.title = "Cart";
 
@@ -79,7 +79,7 @@ if (user) {
                 <img src="${pathPrefix}assets/log-out-user.png" alt="Logout icon">
             </button>
             <a href="${pathPrefix}cart.html" title="Cart">
-                <img src="${pathPrefix}assets/shopping-bag.png" alt="Shopping Bag Icon">
+                <img src="${pathPrefix}assets/Shopping-bag.png" alt="Shopping Bag Icon">
             </a>
         `;
     }
@@ -102,13 +102,13 @@ if (user) {
     // Show login icon when user is not logged in
     headerIcons.innerHTML = `
         <a href="${pathPrefix}account/login.html" title="Login"><img src="${pathPrefix}assets/user.png" alt="User profile icon"></a>
-        <a href="${pathPrefix}cart.html" title="Cart"><img src="${pathPrefix}assets/shopping-bag.png" alt="Shopping Bag Icon"></a>
+        <a href="${pathPrefix}cart.html" title="Cart"><img src="${pathPrefix}assets/Shopping-bag.png" alt="Shopping Bag Icon"></a>
     `;
 
     if (mobileIcons) {
         mobileIcons.innerHTML = `
             <a href="${pathPrefix}account/login.html" title="Login"><img src="${pathPrefix}assets/user.png" alt="User profile icon"></a>
-            <a href="${pathPrefix}cart.html" title="Cart"><img src="${pathPrefix}assets/shopping-bag.png" alt="Shopping Bag Icon"></a>
+            <a href="${pathPrefix}cart.html" title="Cart"><img src="${pathPrefix}assets/Shopping-bag.png" alt="Shopping Bag Icon"></a>
         `;
     }
 }
