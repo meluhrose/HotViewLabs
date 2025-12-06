@@ -23,8 +23,9 @@ The main objective for this project is to build a front-end user interface for a
 - Google Fonts (Figtree & Inter)
 
 ## Installation
-1. Clone the repository 
-2. Open `index.html` in a web browser
+1. Clone the repository bash git https://github.com/meluhrose/meluhrose.github.io
+2. Open the repository: bash cd meluhrose.github.io
+3. Open `index.html` in a web browser
 
 ## API Integration
 The project uses the Noroff Shop API:
@@ -53,4 +54,4 @@ Educational project for Noroff School of Technology and Digital Media
 Milagros Vasshus
 Email: meluhrose@gmail.com
 
-Project Link: 
+Project Link: meluhrose.github.io
