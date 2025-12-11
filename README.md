@@ -52,6 +52,7 @@ Educational project for Noroff School of Technology and Digital Media
 ## Contact
 
 Milagros Vasshus
+
 Email: meluhrose@gmail.com
 
-Project Link: meluhrose.github.io
+Project Link: meluhrose.github.io/HotViewLabs
