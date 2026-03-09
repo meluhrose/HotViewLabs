@@ -51,7 +51,7 @@ Educational project for Noroff School of Technology and Digital Media
 
 ## Contact
 
-Milagros Vasshus
+Mila Cacho
 
 Email: meluhrose@gmail.com
 
